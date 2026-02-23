@@ -1,28 +1,36 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import Navigation from './components/Navigation';
-import MagneticButton from './components/MagneticButton';
-import BentoGrid from './components/BentoGrid';
-import BentoCard from './components/BentoCard';
-import AnimatedTypography from './components/AnimatedTypography';
-import { ArrowUpRight, Cpu, Lightning, Globe, Code, Palette, ChartLineUp } from '@phosphor-icons/react';
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import Navigation from "./components/Navigation";
+import MagneticButton from "./components/MagneticButton";
+import BentoGrid from "./components/BentoGrid";
+import BentoCard from "./components/BentoCard";
+import AnimatedTypography from "./components/AnimatedTypography";
+import {
+  ArrowUpRight,
+  Cpu,
+  Lightning,
+  Globe,
+  Code,
+  Palette,
+  ChartLineUp,
+} from "@phosphor-icons/react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
   animate: { opacity: 1, y: 0 },
-  transition: { type: "spring", stiffness: 100, damping: 20 }
+  transition: { type: "spring", stiffness: 100, damping: 20 },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
+      delayChildren: 0.3,
+    },
+  },
 };
 
 export default function Home() {
@@ -48,7 +56,10 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-start justify-between gap-16 lg:gap-24">
             {/* Left Column: Massive Asymmetric Headline */}
             <div className="flex-1 max-w-4xl">
-              <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-8">
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center gap-3 mb-8"
+              >
                 <span className="w-8 h-px bg-accent" />
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
                   Creative UI Developer // v4.1
@@ -57,18 +68,31 @@ export default function Home() {
 
               <h1 className="text-6xl md:text-[7vw] font-medium tracking-tighter leading-[0.85] mb-12">
                 <AnimatedTypography text="Crafting" /> <br />
-                <span className="text-secondary italic font-light">interfaces</span> <br />
+                <span className="text-secondary italic font-light">
+                  interfaces
+                </span>{" "}
+                <br />
                 <AnimatedTypography text="that feel alive." delay={0.5} />
               </h1>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
                 <MagneticButton>
-                  <Link href="/work" className="px-10 py-5 bg-foreground text-background rounded-full font-medium text-sm flex items-center gap-3 group hover:bg-accent hover:text-white transition-all shadow-xl shadow-black/20">
-                    Explore Work <ArrowUpRight weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  <Link
+                    href="/work"
+                    className="px-10 py-5 bg-foreground text-background rounded-full font-medium text-sm flex items-center gap-3 group hover:bg-accent hover:text-white transition-all shadow-xl shadow-black/20"
+                  >
+                    Explore Work{" "}
+                    <ArrowUpRight
+                      weight="bold"
+                      className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                    />
                   </Link>
                 </MagneticButton>
                 <MagneticButton>
-                  <Link href="/#process" className="px-10 py-5 border border-white/10 rounded-full font-medium text-sm flex items-center gap-3 hover:bg-white/5 transition-all text-secondary hover:text-white">
+                  <Link
+                    href="/#process"
+                    className="px-10 py-5 border border-white/10 rounded-full font-medium text-sm flex items-center gap-3 hover:bg-white/5 transition-all text-secondary hover:text-white"
+                  >
                     Creative Process
                   </Link>
                 </MagneticButton>
@@ -79,7 +103,9 @@ export default function Home() {
             <div className="w-full lg:w-[400px] flex flex-col gap-12 lg:pt-24 self-end lg:self-start">
               <motion.div variants={fadeInUp} className="space-y-6">
                 <p className="text-secondary leading-relaxed text-xl font-light">
-                  I craft expressive UI systems where motion, typography, and interaction design converge into memorable digital experiences.
+                  I craft expressive UI systems where motion, typography, and
+                  interaction design converge into memorable digital
+                  experiences.
                 </p>
                 <div className="flex items-center gap-4 text-xs font-mono text-accent/60">
                   <Globe size={16} />
@@ -87,16 +113,31 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-px bg-white/5 rounded-3xl overflow-hidden glass-refraction border border-white/5">
+              <motion.div
+                variants={fadeInUp}
+                className="grid grid-cols-2 gap-px bg-white/5 rounded-3xl overflow-hidden glass-refraction border border-white/5"
+              >
                 <div className="p-8 bg-background/50">
-                  <div className="text-accent mb-4"><Lightning size={24} weight="bold" /></div>
-                  <div className="text-3xl font-mono tracking-tighter">99.2</div>
-                  <div className="text-[9px] uppercase tracking-widest text-secondary mt-1">Perf Index</div>
+                  <div className="text-accent mb-4">
+                    <Lightning size={24} weight="bold" />
+                  </div>
+                  <div className="text-3xl font-mono tracking-tighter">
+                    99.2
+                  </div>
+                  <div className="text-[9px] uppercase tracking-widest text-secondary mt-1">
+                    Perf Index
+                  </div>
                 </div>
                 <div className="p-8 bg-background/50">
-                  <div className="text-accent mb-4"><Cpu size={24} weight="bold" /></div>
-                  <div className="text-3xl font-mono tracking-tighter">0.08<span className="text-xs">ms</span></div>
-                  <div className="text-[9px] uppercase tracking-widest text-secondary mt-1">Render Floor</div>
+                  <div className="text-accent mb-4">
+                    <Cpu size={24} weight="bold" />
+                  </div>
+                  <div className="text-3xl font-mono tracking-tighter">
+                    0.08<span className="text-xs">ms</span>
+                  </div>
+                  <div className="text-[9px] uppercase tracking-widest text-secondary mt-1">
+                    Render Floor
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -110,7 +151,9 @@ export default function Home() {
           transition={{ delay: 2, duration: 1 }}
           className="absolute bottom-12 left-6 md:left-24 flex flex-col items-start gap-6"
         >
-          <span className="text-[9px] uppercase tracking-[0.3em] text-secondary vertical-text mb-4">Explore</span>
+          <span className="text-[9px] uppercase tracking-[0.3em] text-secondary vertical-text mb-4">
+            Explore
+          </span>
           <div className="w-[1px] h-24 bg-gradient-to-b from-accent to-transparent" />
         </motion.div>
       </section>
@@ -127,16 +170,24 @@ export default function Home() {
                 className="flex items-center gap-3 mb-6"
               >
                 <span className="w-8 h-px bg-accent" />
-                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Selected Works // 01-04</span>
+                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
+                  Selected Works // 01-04
+                </span>
               </motion.div>
               <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-zinc-900 leading-[0.9]">
                 Designed for <br />
-                <span className="italic font-light text-zinc-300">conversion.</span>
+                <span className="italic font-light text-zinc-300">
+                  conversion.
+                </span>
               </h2>
             </div>
             <MagneticButton>
               <div className="flex items-center gap-3 text-zinc-400 hover:text-accent transition-colors uppercase text-[10px] tracking-[0.2em] font-bold cursor-pointer group">
-                All Systems <ArrowUpRight weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                All Systems{" "}
+                <ArrowUpRight
+                  weight="bold"
+                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                />
               </div>
             </MagneticButton>
           </header>
@@ -155,10 +206,17 @@ export default function Home() {
                   whileInView={{ scale: 1, opacity: 1 }}
                   className="relative z-20 flex flex-col items-center gap-4"
                 >
-                  <div className="text-[8vw] font-mono text-white/10 select-none tracking-tighter leading-none">AURA_SYS</div>
+                  <div className="text-[8vw] font-mono text-white/10 select-none tracking-tighter leading-none">
+                    AURA_SYS
+                  </div>
                   <div className="flex gap-2">
-                    {['NEXT.JS', 'FRAMER MOTION', 'CANVAS'].map(tech => (
-                      <span key={tech} className="px-2 py-1 text-[8px] font-mono border border-white/10 text-secondary bg-white/5">{tech}</span>
+                    {["NEXT.JS", "FRAMER MOTION", "CANVAS"].map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 text-[8px] font-mono border border-white/10 text-secondary bg-white/5"
+                      >
+                        {tech}
+                      </span>
                     ))}
                   </div>
                 </motion.div>
@@ -169,19 +227,19 @@ export default function Home() {
                     animate={{
                       y: [0, -20, 0],
                       x: [0, 10, 0],
-                      opacity: [0.2, 0.5, 0.2]
+                      opacity: [0.2, 0.5, 0.2],
                     }}
                     transition={{
                       duration: 4 + i,
                       repeat: Infinity,
                       ease: "easeInOut",
-                      delay: i * 0.5
+                      delay: i * 0.5,
                     }}
                     className="absolute w-24 h-24 border border-accent/20 rounded-lg flex items-center justify-center bg-accent/5 backdrop-blur-sm"
                     style={{
                       top: `${20 + i * 15}%`,
                       left: `${10 + i * 20}%`,
-                      transform: `rotate(${i * 15}deg)`
+                      transform: `rotate(${i * 15}deg)`,
                     }}
                   >
                     <div className="w-1 h-1 bg-accent rounded-full" />
@@ -207,7 +265,9 @@ export default function Home() {
 
                 <div className="flex flex-col gap-6 mt-8 relative z-20">
                   <div className="space-y-4">
-                    <div className="text-[8px] font-mono text-accent">SHADER_SOURCE://0X8F21</div>
+                    <div className="text-[8px] font-mono text-accent">
+                      SHADER_SOURCE://0X8F21
+                    </div>
                     <pre className="text-[10px] font-mono text-zinc-500 overflow-hidden leading-tight">
                       {`void main() {
   vec2 uv = fragCoord;
@@ -249,15 +309,23 @@ export default function Home() {
                 <motion.div
                   animate={{
                     rotate: [0, 360],
-                    scale: [1, 1.05, 1]
+                    scale: [1, 1.05, 1],
                   }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="w-48 h-48 rounded-full border border-white/5 flex items-center justify-center relative"
                 >
                   <div className="absolute inset-0 border border-accent/20 rounded-full animate-ping" />
                   <motion.div
                     animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 0.5, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{
+                      duration: 0.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                     className="w-32 h-32 rounded-full border border-accent/40 flex items-center justify-center"
                   >
                     <div className="w-8 h-8 rounded-full bg-accent shadow-[0_0_40px_var(--color-accent)]" />
@@ -268,8 +336,17 @@ export default function Home() {
                   {Array.from({ length: 40 }).map((_, i) => (
                     <motion.div
                       key={i}
-                      animate={{ height: [`${Math.random() * 100}%`, `${Math.random() * 100}%`] }}
-                      transition={{ duration: 0.2, repeat: Infinity, repeatType: "mirror" }}
+                      animate={{
+                        height: [
+                          `${Math.random() * 100}%`,
+                          `${Math.random() * 100}%`,
+                        ],
+                      }}
+                      transition={{
+                        duration: 0.2,
+                        repeat: Infinity,
+                        repeatType: "mirror",
+                      }}
                       className="w-[2px] bg-accent"
                     />
                   ))}
@@ -291,7 +368,9 @@ export default function Home() {
                     whileHover={{ scale: 0.95, rotate: i % 2 === 0 ? 2 : -2 }}
                     className="aspect-square bg-zinc-900 border border-white/5 rounded-2xl flex flex-col items-center justify-center p-4 group/item relative overflow-hidden"
                   >
-                    <div className="absolute top-2 left-2 text-[8px] font-mono text-zinc-700">0{i}_ORCH</div>
+                    <div className="absolute top-2 left-2 text-[8px] font-mono text-zinc-700">
+                      0{i}_ORCH
+                    </div>
                     <motion.div
                       layout
                       className="w-12 h-12 border border-accent/40 rounded-lg flex items-center justify-center"
@@ -312,7 +391,10 @@ export default function Home() {
       </section>
 
       {/* Philosophy Section */}
-      <section id="philosophy" className="min-h-dvh bg-background text-foreground flex flex-col lg:flex-row relative overflow-hidden">
+      <section
+        id="philosophy"
+        className="min-h-dvh bg-background text-foreground flex flex-col lg:flex-row relative overflow-hidden"
+      >
         <div className="flex-1 p-6 md:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -321,34 +403,47 @@ export default function Home() {
             className="flex items-center gap-3 mb-12"
           >
             <span className="w-8 h-px bg-accent" />
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">The Protocol // 02</span>
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
+              The Protocol // 02
+            </span>
           </motion.div>
 
           <h2 className="text-4xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-12">
             I don't ship <br />
             screens. I <br />
-            <span className="text-secondary italic font-light">compose</span> <br />
+            <span className="text-secondary italic font-light">
+              compose
+            </span>{" "}
+            <br />
             experiences.
           </h2>
 
           <p className="text-secondary text-xl leading-relaxed max-w-xl font-light">
-            My approach blends visual storytelling with precise interaction design. Every pixel carries intent, every motion tells a story, and every detail earns its place.
+            My approach blends visual storytelling with precise interaction
+            design. Every pixel carries intent, every motion tells a story, and
+            every detail earns its place.
           </p>
 
           <div className="mt-16 flex items-center gap-12">
             <div>
               <div className="text-accent font-mono text-2xl mb-1">01</div>
-              <div className="text-[10px] uppercase tracking-widest text-secondary">Concept</div>
+              <div className="text-[10px] uppercase tracking-widest text-secondary">
+                Concept
+              </div>
             </div>
             <div className="w-12 h-px bg-white/10" />
             <div>
               <div className="text-accent font-mono text-2xl mb-1">02</div>
-              <div className="text-[10px] uppercase tracking-widest text-secondary">Physics</div>
+              <div className="text-[10px] uppercase tracking-widest text-secondary">
+                Physics
+              </div>
             </div>
             <div className="w-12 h-px bg-white/10" />
             <div>
               <div className="text-accent font-mono text-2xl mb-1">03</div>
-              <div className="text-[10px] uppercase tracking-widest text-secondary">Deploy</div>
+              <div className="text-[10px] uppercase tracking-widest text-secondary">
+                Deploy
+              </div>
             </div>
           </div>
         </div>
@@ -365,7 +460,9 @@ export default function Home() {
           >
             <div className="flex items-center gap-3 mb-8">
               <span className="w-8 h-px bg-accent" />
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Skill Matrix</span>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
+                Skill Matrix
+              </span>
             </div>
 
             <div className="relative border border-white/10 rounded-3xl bg-white/2 p-6 overflow-hidden">
@@ -373,19 +470,43 @@ export default function Home() {
               <div className="absolute -right-24 -top-24 w-56 h-56 rounded-full border border-white/10 opacity-30" />
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-[9px] font-mono tracking-[0.4em] uppercase text-accent">Badge Mosaic</span>
-                  <span className="text-[9px] text-white/40 uppercase tracking-widest">v2</span>
+                  <span className="text-[9px] font-mono tracking-[0.4em] uppercase text-accent">
+                    Badge Mosaic
+                  </span>
+                  <span className="text-[9px] text-white/40 uppercase tracking-widest">
+                    v2
+                  </span>
                 </div>
 
                 <div className="flex flex-wrap gap-3">
                   {[
-                    'NEXT.JS', 'REACT', 'FRAMER', 'GSAP', 'THREE.JS', 'GLSL', 'WEBGL', 'TAILWIND', 'TYPESCRIPT',
-                    'CSS ARCH', 'WEB AUDIO', 'CANVAS', 'LAYOUT API', 'LENIS', 'MOTION', 'UX FLOW', 'MICRO-UI',
-                    'GRID SYSTEMS', 'TYPE RHYTHM', 'PERF VITALS', 'A11Y', 'SCROLL FX', 'STATE MGMT'
+                    "NEXT.JS",
+                    "REACT",
+                    "FRAMER",
+                    "GSAP",
+                    "THREE.JS",
+                    "GLSL",
+                    "WEBGL",
+                    "TAILWIND",
+                    "TYPESCRIPT",
+                    "CSS ARCH",
+                    "WEB AUDIO",
+                    "CANVAS",
+                    "LAYOUT API",
+                    "LENIS",
+                    "MOTION",
+                    "UX FLOW",
+                    "MICRO-UI",
+                    "GRID SYSTEMS",
+                    "TYPE RHYTHM",
+                    "PERF VITALS",
+                    "A11Y",
+                    "SCROLL FX",
+                    "STATE MGMT",
                   ].map((badge, i) => (
                     <span
                       key={badge}
-                      className={`text-[10px] font-mono uppercase tracking-widest px-4 py-2 rounded-full border border-white/10 bg-white/2 text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent/10 hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] ${i % 7 === 0 ? 'ring-1 ring-accent/30' : ''}`}
+                      className={`text-[10px] font-mono uppercase tracking-widest px-4 py-2 rounded-full border border-white/10 bg-white/2 text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent/10 hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] ${i % 7 === 0 ? "ring-1 ring-accent/30" : ""}`}
                     >
                       {badge}
                     </span>
@@ -418,19 +539,28 @@ export default function Home() {
               className="flex items-center gap-3 mb-8"
             >
               <span className="w-8 h-px bg-accent" />
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Expertise // 03</span>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
+                Expertise // 03
+              </span>
             </motion.div>
             <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-zinc-900 leading-[0.85]">
               Creative <br />
-              <span className="italic font-light text-zinc-300">Capabilities.</span>
+              <span className="italic font-light text-zinc-300">
+                Capabilities.
+              </span>
             </h2>
             <p className="mt-12 text-zinc-500 text-lg leading-relaxed max-w-sm">
-              I design and build cinematic UI systems where motion, layout, and interaction elevate the product story.
+              I design and build cinematic UI systems where motion, layout, and
+              interaction elevate the product story.
             </p>
             <div className="mt-12">
               <MagneticButton>
-                <Link href="/services" className="text-[10px] uppercase tracking-widest font-bold text-accent flex items-center gap-2 group">
-                  View full creative protocol <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <Link
+                  href="/services"
+                  className="text-[10px] uppercase tracking-widest font-bold text-accent flex items-center gap-2 group"
+                >
+                  View full creative protocol{" "}
+                  <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
               </MagneticButton>
             </div>
@@ -438,10 +568,30 @@ export default function Home() {
 
           <div className="lg:w-2/3 flex flex-col divide-y divide-zinc-100">
             {[
-              { id: '01', title: 'Interface Craft', desc: 'Designing expressive UI systems with Next.js and Framer Motion. Built for clarity and emotion.', icon: <Code size={32} /> },
-              { id: '02', title: 'Visual Storytelling', desc: 'Shaping the product narrative through typography, layout rhythm, and cinematic flow.', icon: <Palette size={32} /> },
-              { id: '03', title: 'Motion Design', desc: 'Building fluid, tactile interactions that feel intentional and delightfully human.', icon: <ChartLineUp size={32} /> },
-              { id: '04', title: 'Performance Artistry', desc: 'Optimizing vitals, accessibility, and polish without sacrificing beauty.', icon: <Lightning size={32} /> }
+              {
+                id: "01",
+                title: "Interface Craft",
+                desc: "Designing expressive UI systems with Next.js and Framer Motion. Built for clarity and emotion.",
+                icon: <Code size={32} />,
+              },
+              {
+                id: "02",
+                title: "Visual Storytelling",
+                desc: "Shaping the product narrative through typography, layout rhythm, and cinematic flow.",
+                icon: <Palette size={32} />,
+              },
+              {
+                id: "03",
+                title: "Motion Design",
+                desc: "Building fluid, tactile interactions that feel intentional and delightfully human.",
+                icon: <ChartLineUp size={32} />,
+              },
+              {
+                id: "04",
+                title: "Performance Artistry",
+                desc: "Optimizing vitals, accessibility, and polish without sacrificing beauty.",
+                icon: <Lightning size={32} />,
+              },
             ].map((service, i) => (
               <motion.div
                 key={service.id}
@@ -452,14 +602,20 @@ export default function Home() {
                 className="group py-16 flex flex-col md:flex-row items-start gap-12 group"
               >
                 <div className="flex items-center gap-6 md:w-1/3">
-                  <span className="text-accent font-mono text-sm">{service.id}</span>
+                  <span className="text-accent font-mono text-sm">
+                    {service.id}
+                  </span>
                   <div className="text-zinc-400 group-hover:text-accent transition-colors duration-500">
                     {service.icon}
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-3xl md:text-5xl font-medium text-zinc-900 mb-6 group-hover:translate-x-2 transition-transform duration-500">{service.title}</h3>
-                  <p className="text-zinc-500 text-xl leading-relaxed max-w-xl font-light">{service.desc}</p>
+                  <h3 className="text-3xl md:text-5xl font-medium text-zinc-900 mb-6 group-hover:translate-x-2 transition-transform duration-500">
+                    {service.title}
+                  </h3>
+                  <p className="text-zinc-500 text-xl leading-relaxed max-w-xl font-light">
+                    {service.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -468,7 +624,10 @@ export default function Home() {
       </section>
 
       {/* The Process / Protocol Section */}
-      <section id="process" className="py-32 px-6 md:px-24 bg-zinc-950 text-white overflow-hidden relative">
+      <section
+        id="process"
+        className="py-32 px-6 md:px-24 bg-zinc-950 text-white overflow-hidden relative"
+      >
         <div className="absolute inset-0 pixel-grid opacity-10 pointer-events-none" />
         <div className="w-full max-w-7xl mx-auto">
           <header className="mb-24">
@@ -479,22 +638,50 @@ export default function Home() {
               className="flex items-center gap-3 mb-8"
             >
               <span className="w-8 h-px bg-accent" />
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">The Protocol // 04</span>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
+                The Protocol // 04
+              </span>
             </motion.div>
             <h2 className="text-5xl md:text-8xl font-medium tracking-tighter leading-[0.85]">
               Creative <br />
-              <span className="italic font-light text-zinc-500">Execution.</span>
+              <span className="italic font-light text-zinc-500">
+                Execution.
+              </span>
             </h2>
           </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
-              { step: '01', title: 'DISCOVERY', desc: 'Immersion into the product story, audience, and creative direction.' },
-              { step: '02', title: 'VISUAL SYSTEM', desc: 'Typography, layout rhythm, and motion language that define the brand feel.' },
-              { step: '03', title: 'INTERACTION', desc: 'Crafting tactile interactions and micro-moments that make it feel alive.' },
-              { step: '04', title: 'REFINEMENT', desc: 'Pixel-level polish and motion tuning across every breakpoint.' },
-              { step: '05', title: 'PERFORMANCE', desc: 'Speed, accessibility, and responsiveness without sacrificing aesthetics.' },
-              { step: '06', title: 'LAUNCH', desc: 'Precision deployment and post-launch iteration for continuous impact.' },
+              {
+                step: "01",
+                title: "DISCOVERY",
+                desc: "Immersion into the product story, audience, and creative direction.",
+              },
+              {
+                step: "02",
+                title: "VISUAL SYSTEM",
+                desc: "Typography, layout rhythm, and motion language that define the brand feel.",
+              },
+              {
+                step: "03",
+                title: "INTERACTION",
+                desc: "Crafting tactile interactions and micro-moments that make it feel alive.",
+              },
+              {
+                step: "04",
+                title: "REFINEMENT",
+                desc: "Pixel-level polish and motion tuning across every breakpoint.",
+              },
+              {
+                step: "05",
+                title: "PERFORMANCE",
+                desc: "Speed, accessibility, and responsiveness without sacrificing aesthetics.",
+              },
+              {
+                step: "06",
+                title: "LAUNCH",
+                desc: "Precision deployment and post-launch iteration for continuous impact.",
+              },
             ].map((item, i) => (
               <motion.div
                 key={item.step}
@@ -504,9 +691,15 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="p-12 border border-white/5 bg-white/2 hover:bg-white/5 transition-colors relative group"
               >
-                <span className="text-xs font-mono text-accent mb-6 block">{item.step}</span>
-                <h3 className="text-2xl font-medium mb-4 tracking-tight group-hover:translate-x-2 transition-transform">{item.title}</h3>
-                <p className="text-secondary text-sm leading-relaxed font-light">{item.desc}</p>
+                <span className="text-xs font-mono text-accent mb-6 block">
+                  {item.step}
+                </span>
+                <h3 className="text-2xl font-medium mb-4 tracking-tight group-hover:translate-x-2 transition-transform">
+                  {item.title}
+                </h3>
+                <p className="text-secondary text-sm leading-relaxed font-light">
+                  {item.desc}
+                </p>
                 <div className="absolute bottom-0 left-0 w-0 h-1 bg-accent group-hover:w-full transition-all duration-700" />
               </motion.div>
             ))}
@@ -515,7 +708,10 @@ export default function Home() {
       </section>
 
       {/* Footer / Contact Section */}
-      <footer id="contact" className="min-h-dvh bg-background text-foreground flex flex-col justify-between p-6 md:p-24 relative overflow-hidden">
+      <footer
+        id="contact"
+        className="min-h-dvh bg-background text-foreground flex flex-col justify-between p-6 md:p-24 relative overflow-hidden"
+      >
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] border border-white/2 rounded-full" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] border border-white/5 rounded-full" />
@@ -529,39 +725,57 @@ export default function Home() {
             className="flex items-center gap-3 mb-12"
           >
             <span className="w-8 h-px bg-accent" />
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Get in touch // 04</span>
+            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
+              Get in touch // 04
+            </span>
           </motion.div>
 
           <h2 className="text-6xl md:text-[14vw] font-medium tracking-tighter leading-[0.75] mb-24">
             Let's build <br />
-            <span className="italic font-light text-secondary">the future.</span>
+            <span className="italic font-light text-secondary">together.</span>
           </h2>
 
           <div className="flex flex-col lg:flex-row gap-16 items-start justify-between">
             <MagneticButton>
-              <a href="mailto:hello@pixeldperfect.com" className="group text-3xl md:text-7xl font-light tracking-tight hover:text-accent transition-colors flex items-center gap-8">
-                hello@pixeldperfect.com
+              <a
+                href="mailto:prakash@pixeldperfect.com"
+                className="group text-3xl md:text-7xl font-light tracking-tight hover:text-accent transition-colors flex items-center gap-8"
+              >
+                prakash@pixeldperfect.com
                 <div className="w-16 h-16 md:w-32 md:h-32 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-500">
-                  <ArrowUpRight weight="bold" className="group-hover:rotate-45 transition-transform text-white w-8 h-8 md:w-12 md:h-12" />
+                  <ArrowUpRight
+                    weight="bold"
+                    className="group-hover:rotate-45 transition-transform text-white w-8 h-8 md:w-12 md:h-12"
+                  />
                 </div>
               </a>
             </MagneticButton>
 
             <div className="grid grid-cols-2 gap-16 text-secondary text-xs font-mono tracking-[0.2em]">
               <div className="space-y-4">
-                <span className="text-accent underline underline-offset-8">STUDIO</span>
+                <span className="text-accent underline underline-offset-8">
+                  STUDIO
+                </span>
                 <p className="leading-loose uppercase">
-                  12.9716 N, 77.5946 E <br />
-                  BENGALURU, INDIA <br />
+                  New Perungalathur <br />
+                  Chennai, India <br />
                   EST. 2026
                 </p>
               </div>
               <div className="space-y-4">
-                <span className="text-accent underline underline-offset-8">SOCIAL</span>
+                <span className="text-accent underline underline-offset-8">
+                  SOCIAL
+                </span>
                 <div className="flex flex-col gap-2">
-                  <a href="#" className="hover:text-white transition-colors">DRIBBBLE</a>
-                  <a href="#" className="hover:text-white transition-colors">X / TWITTER</a>
-                  <a href="#" className="hover:text-white transition-colors">LINKEDIN</a>
+                  <a href="#" className="hover:text-white transition-colors">
+                    DRIBBBLE
+                  </a>
+                  <a href="#" className="hover:text-white transition-colors">
+                    X / TWITTER
+                  </a>
+                  <a href="#" className="hover:text-white transition-colors">
+                    LINKEDIN
+                  </a>
                 </div>
               </div>
             </div>
@@ -569,10 +783,14 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 text-secondary text-[9px] uppercase tracking-[0.4em]">
-          <div>PixelDperfect (TM) // All Rights Reserved</div>
+          <div>Prakash (TM) // All Rights Reserved</div>
           <div className="flex gap-12">
-            <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-accent transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-accent transition-colors">
+              Terms of Service
+            </a>
           </div>
           <div>Copyright 2026 // v4.0.2</div>
         </div>
