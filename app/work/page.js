@@ -1,76 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import { ArrowUpRight } from '@phosphor-icons/react';
-
-const projects = [
-    {
-        id: '01',
-        title: 'Aura OS // v2.0',
-        category: 'Physics',
-        desc: 'Custom physics-based window manager simulation.',
-        tags: ['NEXT.JS', 'FRAMER', 'CANVAS'],
-        color: 'accent'
-    },
-    {
-        id: '02',
-        title: 'Protocol Mesh',
-        category: 'GLSL',
-        desc: 'Interactive 3D visualization with custom shaders.',
-        tags: ['WEBGL', 'GLSL', 'REACT'],
-        color: 'secondary'
-    },
-    {
-        id: '03',
-        title: 'Sonic Interface',
-        category: 'Audio',
-        desc: 'Spatial audio synth with generative UI states.',
-        tags: ['WEB AUDIO', 'MOTION'],
-        color: 'accent'
-    },
-    {
-        id: '04',
-        title: 'Motion Core',
-        category: 'Architecture',
-        desc: 'Fluid Next.js transition orchestration engine.',
-        tags: ['LAYOUT API', 'GSAP'],
-        color: 'secondary'
-    },
-    {
-        id: '05',
-        title: 'Holograph Pro',
-        category: 'GLSL',
-        desc: 'Depth-reactive UI portal using ray-marched textures.',
-        tags: ['THREE.JS', 'SHADERS'],
-        color: 'accent'
-    },
-    {
-        id: '06',
-        title: 'Velocity UI',
-        category: 'Physics',
-        desc: 'Zero-latency interaction system for trading desks.',
-        tags: ['TURBO', 'CANVAS'],
-        color: 'secondary'
-    },
-    {
-        id: '07',
-        title: 'Neural Grain',
-        category: 'Architecture',
-        desc: 'AI-assisted procedural texture generation layer.',
-        tags: ['ML', 'CSS ENGINE'],
-        color: 'accent'
-    },
-    {
-        id: '08',
-        title: 'Prism Space',
-        category: 'GLSL',
-        desc: 'Refractive light simulation in standard DOM space.',
-        tags: ['DOM MATH', 'GLSL'],
-        color: 'secondary'
-    }
-];
+import { projects } from './projects';
 
 export default function WorkPage() {
     const [filter, setFilter] = useState('All');
@@ -96,10 +31,10 @@ export default function WorkPage() {
                                 className="flex items-center gap-3 mb-12"
                             >
                                 <span className="w-8 h-px bg-accent" />
-                                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Proof of Concept // [WORK]</span>
+                                <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Creative Experiments // [WORK]</span>
                             </motion.div>
                             <h1 className="text-6xl md:text-[8vw] font-medium tracking-tighter leading-[0.85] mb-8">
-                                The Engineering <br />
+                                The Creative <br />
                                 <span className="italic font-light text-secondary">Archive.</span>
                             </h1>
                         </div>
@@ -122,34 +57,35 @@ export default function WorkPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <AnimatePresence mode="popLayout">
                             {filteredProjects.map((project) => (
-                                <motion.div
-                                    key={project.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    whileHover={{ y: -10 }}
-                                    className="group relative bg-white/2 border border-white/5 rounded-3xl overflow-hidden aspect-4/3 flex flex-col justify-end p-12 transition-colors hover:bg-white/5"
-                                >
-                                    <div className="absolute top-12 left-12 text-accent font-mono text-sm">{project.id}</div>
-                                    <div className="relative z-10">
-                                        <div className="flex gap-2 mb-6">
-                                            {project.tags.map(tag => (
-                                                <span key={tag} className="text-[8px] font-mono border border-white/10 px-2 py-0.5 text-zinc-500 bg-white/2">{tag}</span>
-                                            ))}
+                                <Link key={project.id} href={`/work/${project.slug}`} className="block">
+                                    <motion.div
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.95 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.95 }}
+                                        whileHover={{ y: -10 }}
+                                        className="group relative bg-white/2 border border-white/5 rounded-3xl overflow-hidden aspect-4/3 flex flex-col justify-end p-12 transition-colors hover:bg-white/5"
+                                    >
+                                        <div className="absolute top-12 left-12 text-accent font-mono text-sm">{project.id}</div>
+                                        <div className="relative z-10">
+                                            <div className="flex gap-2 mb-6">
+                                                {project.tags.map(tag => (
+                                                    <span key={tag} className="text-[8px] font-mono border border-white/10 px-2 py-0.5 text-zinc-500 bg-white/2">{tag}</span>
+                                                ))}
+                                            </div>
+                                            <h2 className="text-4xl md:text-6xl font-medium tracking-tighter mb-4">{project.title}</h2>
+                                            <p className="text-secondary text-lg font-light leading-relaxed max-w-sm">{project.desc}</p>
                                         </div>
-                                        <h2 className="text-4xl md:text-6xl font-medium tracking-tighter mb-4">{project.title}</h2>
-                                        <p className="text-secondary text-lg font-light leading-relaxed max-w-sm">{project.desc}</p>
-                                    </div>
-                                    <div className="absolute top-12 right-12 w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
-                                        <ArrowUpRight weight="bold" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                                    </div>
-                                    {/* Decorative Project Pattern */}
-                                    <div className="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity">
-                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/10 rounded-full group-hover:scale-95 transition-transform duration-1000" />
-                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/5 rounded-full group-hover:scale-105 transition-transform duration-1000" />
-                                    </div>
-                                </motion.div>
+                                        <div className="absolute top-12 right-12 w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
+                                            <ArrowUpRight weight="bold" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                        </div>
+                                        {/* Decorative Project Pattern */}
+                                        <div className="absolute inset-0 z-0 opacity-10 group-hover:opacity-20 transition-opacity">
+                                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/10 rounded-full group-hover:scale-95 transition-transform duration-1000" />
+                                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/5 rounded-full group-hover:scale-105 transition-transform duration-1000" />
+                                        </div>
+                                    </motion.div>
+                                </Link>
                             ))}
                         </AnimatePresence>
                     </div>
@@ -157,8 +93,8 @@ export default function WorkPage() {
             </section>
 
             <footer className="py-24 border-t border-white/5 text-center">
-                <div className="text-secondary text-[9px] uppercase tracking-[0.4em] mb-12">PixelDperfect™ // Built for the edge</div>
-                <a href="/#contact" className="text-3xl font-light hover:text-accent transition-colors">Start a collaboration &rarr;</a>
+                <div className="text-secondary text-[9px] uppercase tracking-[0.4em] mb-12">PixelDperfect (TM) // Built for the edge</div>
+                <Link href="/#contact" className="text-3xl font-light hover:text-accent transition-colors">Start a collaboration &rarr;</Link>
             </footer>
         </main>
     );

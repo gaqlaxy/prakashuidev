@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
 import MagneticButton from './components/MagneticButton';
@@ -50,26 +51,26 @@ export default function Home() {
               <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-8">
                 <span className="w-8 h-px bg-accent" />
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
-                  Senior UI Engineer // v4.1
+                  Creative UI Developer // v4.1
                 </span>
               </motion.div>
 
               <h1 className="text-6xl md:text-[7vw] font-medium tracking-tighter leading-[0.85] mb-12">
-                <AnimatedTypography text="Engineering" /> <br />
+                <AnimatedTypography text="Crafting" /> <br />
                 <span className="text-secondary italic font-light">interfaces</span> <br />
-                <AnimatedTypography text="that transcend." delay={0.5} />
+                <AnimatedTypography text="that feel alive." delay={0.5} />
               </h1>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
                 <MagneticButton>
-                  <button className="px-10 py-5 bg-foreground text-background rounded-full font-medium text-sm flex items-center gap-3 group hover:bg-accent hover:text-white transition-all shadow-xl shadow-black/20">
-                    Explore Systems <ArrowUpRight weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </button>
+                  <Link href="/work" className="px-10 py-5 bg-foreground text-background rounded-full font-medium text-sm flex items-center gap-3 group hover:bg-accent hover:text-white transition-all shadow-xl shadow-black/20">
+                    Explore Work <ArrowUpRight weight="bold" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </Link>
                 </MagneticButton>
                 <MagneticButton>
-                  <button className="px-10 py-5 border border-white/10 rounded-full font-medium text-sm flex items-center gap-3 hover:bg-white/5 transition-all text-secondary hover:text-white">
-                    Our Philosophy
-                  </button>
+                  <Link href="/#process" className="px-10 py-5 border border-white/10 rounded-full font-medium text-sm flex items-center gap-3 hover:bg-white/5 transition-all text-secondary hover:text-white">
+                    Creative Process
+                  </Link>
                 </MagneticButton>
               </motion.div>
             </div>
@@ -78,11 +79,11 @@ export default function Home() {
             <div className="w-full lg:w-[400px] flex flex-col gap-12 lg:pt-24 self-end lg:self-start">
               <motion.div variants={fadeInUp} className="space-y-6">
                 <p className="text-secondary leading-relaxed text-xl font-light">
-                  I bridge the gap between high-end design and precision engineering. Specializing in interaction physics and hardware-accelerated interfaces.
+                  I craft expressive UI systems where motion, typography, and interaction design converge into memorable digital experiences.
                 </p>
                 <div className="flex items-center gap-4 text-xs font-mono text-accent/60">
                   <Globe size={16} />
-                  <span>FREELANCE // BENGALURU // EST. 2026</span>
+                  <span>INDEPENDENT // BENGALURU // EST. 2026</span>
                 </div>
               </motion.div>
 
@@ -129,7 +130,7 @@ export default function Home() {
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Selected Works // 01-04</span>
               </motion.div>
               <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-zinc-900 leading-[0.9]">
-                Engineered for <br />
+                Designed for <br />
                 <span className="italic font-light text-zinc-300">conversion.</span>
               </h2>
             </div>
@@ -324,14 +325,14 @@ export default function Home() {
           </motion.div>
 
           <h2 className="text-4xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-12">
-            I don't build <br />
-            websites. I <br />
-            <span className="text-secondary italic font-light">architect</span> <br />
-            ecosystems.
+            I don't ship <br />
+            screens. I <br />
+            <span className="text-secondary italic font-light">compose</span> <br />
+            experiences.
           </h2>
 
           <p className="text-secondary text-xl leading-relaxed max-w-xl font-light">
-            My approach is rooted in the intersection of mathematical precision and aesthetic purity. Every pixel has a purpose. Every motion has a physics. I build for performance, scalability, and pure digital joy.
+            My approach blends visual storytelling with precise interaction design. Every pixel carries intent, every motion tells a story, and every detail earns its place.
           </p>
 
           <div className="mt-16 flex items-center gap-12">
@@ -367,26 +368,40 @@ export default function Home() {
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Skill Matrix</span>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {['NEXT.JS', 'REACT', 'FRAMER', 'GLSL', 'THREE.JS', 'TAILWIND', 'TYPESCRIPT', 'GSAP', 'WEB AUDIO', 'LENIS'].map((skill) => (
-                <div
-                  key={skill}
-                  className="group/skill border border-white/10 rounded-2xl px-4 py-5 bg-white/2 hover:bg-white/5 transition-colors"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono tracking-widest text-white/80">{skill}</span>
-                    <span className="text-[9px] text-accent">++</span>
-                  </div>
-                  <div className="mt-4 h-px bg-white/10 overflow-hidden">
-                    <div className="h-px w-2/3 bg-accent/60 group-hover/skill:w-full transition-all duration-700" />
-                  </div>
+            <div className="relative border border-white/10 rounded-3xl bg-white/2 p-6 overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15),_transparent_60%)]" />
+              <div className="absolute -right-24 -top-24 w-56 h-56 rounded-full border border-white/10 opacity-30" />
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-[9px] font-mono tracking-[0.4em] uppercase text-accent">Badge Mosaic</span>
+                  <span className="text-[9px] text-white/40 uppercase tracking-widest">v2</span>
                 </div>
-              ))}
+
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    'NEXT.JS', 'REACT', 'FRAMER', 'GSAP', 'THREE.JS', 'GLSL', 'WEBGL', 'TAILWIND', 'TYPESCRIPT',
+                    'CSS ARCH', 'WEB AUDIO', 'CANVAS', 'LAYOUT API', 'LENIS', 'MOTION', 'UX FLOW', 'MICRO-UI',
+                    'GRID SYSTEMS', 'TYPE RHYTHM', 'PERF VITALS', 'A11Y', 'SCROLL FX', 'STATE MGMT'
+                  ].map((badge, i) => (
+                    <span
+                      key={badge}
+                      className={`text-[10px] font-mono uppercase tracking-widest px-4 py-2 rounded-full border border-white/10 bg-white/2 text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent/10 hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] ${i % 7 === 0 ? 'ring-1 ring-accent/30' : ''}`}
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-secondary">
+                  <span className="w-8 h-px bg-white/20" />
+                  Calibrated For Expressive UI
+                </div>
+              </div>
             </div>
 
             <div className="mt-10 text-[10px] uppercase tracking-[0.3em] text-secondary flex items-center gap-3">
               <span className="w-8 h-px bg-white/20" />
-              Calibrated For Real-Time Interfaces
+              Calibrated For Expressive UI
             </div>
           </motion.div>
         </div>
@@ -406,27 +421,27 @@ export default function Home() {
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Expertise // 03</span>
             </motion.div>
             <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-zinc-900 leading-[0.85]">
-              Core <br />
+              Creative <br />
               <span className="italic font-light text-zinc-300">Capabilities.</span>
             </h2>
             <p className="mt-12 text-zinc-500 text-lg leading-relaxed max-w-sm">
-              I specialize in high-performance digital engineering where motion physics meets architectural precision.
+              I design and build cinematic UI systems where motion, layout, and interaction elevate the product story.
             </p>
             <div className="mt-12">
               <MagneticButton>
-                <a href="/services" className="text-[10px] uppercase tracking-widest font-bold text-accent flex items-center gap-2 group">
-                  View full service protocol <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </a>
+                <Link href="/services" className="text-[10px] uppercase tracking-widest font-bold text-accent flex items-center gap-2 group">
+                  View full creative protocol <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Link>
               </MagneticButton>
             </div>
           </div>
 
           <div className="lg:w-2/3 flex flex-col divide-y divide-zinc-100">
             {[
-              { id: '01', title: 'Interface Engineering', desc: 'Hardware-accelerated R&D with Next.js and Framer Motion. I optimize for the sub-ms render floor.', icon: <Code size={32} /> },
-              { id: '02', title: 'Product Strategy', desc: 'Defining the digital narrative and user psychological journeys. Turning browsers into believers.', icon: <Palette size={32} /> },
-              { id: '03', title: 'Motion Physics', desc: 'Crafting fluid, high-frame-rate interaction models that feel organic and tactile.', icon: <ChartLineUp size={32} /> },
-              { id: '04', title: 'Performance Architecture', desc: 'Optimizing Vitals, SEO, and accessibility. I build for the speed of light.', icon: <Lightning size={32} /> }
+              { id: '01', title: 'Interface Craft', desc: 'Designing expressive UI systems with Next.js and Framer Motion. Built for clarity and emotion.', icon: <Code size={32} /> },
+              { id: '02', title: 'Visual Storytelling', desc: 'Shaping the product narrative through typography, layout rhythm, and cinematic flow.', icon: <Palette size={32} /> },
+              { id: '03', title: 'Motion Design', desc: 'Building fluid, tactile interactions that feel intentional and delightfully human.', icon: <ChartLineUp size={32} /> },
+              { id: '04', title: 'Performance Artistry', desc: 'Optimizing vitals, accessibility, and polish without sacrificing beauty.', icon: <Lightning size={32} /> }
             ].map((service, i) => (
               <motion.div
                 key={service.id}
@@ -467,19 +482,19 @@ export default function Home() {
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">The Protocol // 04</span>
             </motion.div>
             <h2 className="text-5xl md:text-8xl font-medium tracking-tighter leading-[0.85]">
-              Technical <br />
+              Creative <br />
               <span className="italic font-light text-zinc-500">Execution.</span>
             </h2>
           </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[
-              { step: '01', title: 'DISCOVERY', desc: 'Deep-dive into technical constraints and product vision. Defining the engineering North Star.' },
-              { step: '02', title: 'ARCHITECTURE', desc: 'Building robust, scalable foundations with a focus on type-safety and performance.' },
-              { step: '03', title: 'PHYSICS', desc: 'Integrating fluid motion and organic interactions via frame-perfect animation engines.' },
-              { step: '04', title: 'REFINEMENT', desc: 'Micro-interaction tuning and sub-pixel polishing across all viewport variants.' },
-              { step: '05', title: 'PERFORMANCE', desc: 'Rigorous auditing for core vitals and zero-bloat delivery systems.' },
-              { step: '06', title: 'DEPLOYMENT', desc: 'Flawless edge delivery and staging-to-prod synchronization.' },
+              { step: '01', title: 'DISCOVERY', desc: 'Immersion into the product story, audience, and creative direction.' },
+              { step: '02', title: 'VISUAL SYSTEM', desc: 'Typography, layout rhythm, and motion language that define the brand feel.' },
+              { step: '03', title: 'INTERACTION', desc: 'Crafting tactile interactions and micro-moments that make it feel alive.' },
+              { step: '04', title: 'REFINEMENT', desc: 'Pixel-level polish and motion tuning across every breakpoint.' },
+              { step: '05', title: 'PERFORMANCE', desc: 'Speed, accessibility, and responsiveness without sacrificing aesthetics.' },
+              { step: '06', title: 'LAUNCH', desc: 'Precision deployment and post-launch iteration for continuous impact.' },
             ].map((item, i) => (
               <motion.div
                 key={item.step}
@@ -536,7 +551,7 @@ export default function Home() {
               <div className="space-y-4">
                 <span className="text-accent underline underline-offset-8">STUDIO</span>
                 <p className="leading-loose uppercase">
-                  12.9716° N, 77.5946° E <br />
+                  12.9716 N, 77.5946 E <br />
                   BENGALURU, INDIA <br />
                   EST. 2026
                 </p>
@@ -554,12 +569,12 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 text-secondary text-[9px] uppercase tracking-[0.4em]">
-          <div>PixelDperfect™ // All Rights Reserved</div>
+          <div>PixelDperfect (TM) // All Rights Reserved</div>
           <div className="flex gap-12">
             <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
           </div>
-          <div>© 2026 // v4.0.2</div>
+          <div>Copyright 2026 // v4.0.2</div>
         </div>
       </footer>
     </main>

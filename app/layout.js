@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "pixelDperfect // Senior UI Engineer & Interface Architect",
-  description: "Senior UI/UX Engineering, Interaction Physics, and Performance Optimization for the modern web.",
+  title: "pixelDperfect // Creative UI Developer & Interaction Designer",
+  description: "Creative UI development, interaction design, and motion-forward interfaces for the modern web.",
 };
 
 export default function RootLayout({ children }) {

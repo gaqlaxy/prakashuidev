@@ -5,13 +5,14 @@ import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
 import { Code, Palette, ChartLineUp, Lightning, ArrowUpRight, Cpu, Globe, Infinity } from '@phosphor-icons/react';
 import MagneticButton from '../components/MagneticButton';
+import Link from 'next/link';
 
 export default function ServicesPage() {
     const services = [
         {
             id: '01',
-            title: 'Interface Engineering',
-            desc: 'High-performance R&D with Next.js, Framer Motion, and WebGL. I build for the sub-millisecond render floor.',
+            title: 'Interface Craft',
+            desc: 'Creative UI engineering with Next.js, Framer Motion, and WebGL. Built for clarity, emotion, and polish.',
             details: [
                 'Hardware-accelerated layout transitions.',
                 'Custom interactive physics engines.',
@@ -23,8 +24,8 @@ export default function ServicesPage() {
         },
         {
             id: '02',
-            title: 'Product Strategy',
-            desc: 'Defining the digital narrative and user psychological journeys. Turning browsers into believers.',
+            title: 'Visual Storytelling',
+            desc: 'Designing the narrative flow and interaction rhythm that makes products feel alive.',
             details: [
                 'User behavior analysis & mapping.',
                 'Conversion-optimized UX architecture.',
@@ -36,8 +37,8 @@ export default function ServicesPage() {
         },
         {
             id: '03',
-            title: 'Motion Physics',
-            desc: 'Crafting fluid, high-frame-rate interaction models that feel organic and tactile.',
+            title: 'Motion Design',
+            desc: 'Crafting fluid, tactile interactions that add personality without sacrificing speed.',
             details: [
                 'Spring-physics based UI components.',
                 'Scroll-driven cinematic orchestration.',
@@ -49,8 +50,8 @@ export default function ServicesPage() {
         },
         {
             id: '04',
-            title: 'Performance Architecture',
-            desc: 'Optimizing Vitals, SEO, and accessibility. I build for the speed of light.',
+            title: 'Performance Artistry',
+            desc: 'Optimizing vitals, accessibility, and responsiveness while preserving the aesthetic.',
             details: [
                 'Core Web Vitals acceleration.',
                 'SEO-first semantic engineering.',
@@ -76,11 +77,11 @@ export default function ServicesPage() {
                         className="flex items-center gap-3 mb-12"
                     >
                         <span className="w-8 h-px bg-accent" />
-                        <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Our Protocol // [SERVICES]</span>
+                        <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Creative Protocol // [SERVICES]</span>
                     </motion.div>
 
                     <h1 className="text-6xl md:text-[10vw] font-medium tracking-tighter leading-[0.85] mb-24 max-w-5xl">
-                        Specialized <br />
+                        Creative <br />
                         <span className="italic font-light text-secondary">Expertise.</span>
                     </h1>
 
@@ -129,19 +130,19 @@ export default function ServicesPage() {
             <section className="py-32 px-6 md:px-24 bg-zinc-950 border-t border-white/5">
                 <div className="w-full max-w-7xl mx-auto flex flex-col items-center text-center">
                     <h3 className="text-4xl md:text-7xl font-medium tracking-tighter leading-tight mb-12 max-w-4xl">
-                        Ready to architect <br />
-                        your next <span className="italic font-light text-zinc-500">digital ecosystem?</span>
+                        Ready to craft <br />
+                        your next <span className="italic font-light text-zinc-500">digital experience?</span>
                     </h3>
                     <MagneticButton>
-                        <a href="/#contact" className="w-48 h-48 rounded-full bg-accent flex items-center justify-center text-white text-xs font-bold uppercase tracking-widest hover:scale-110 transition-transform">
+                        <Link href="/#contact" className="w-48 h-48 rounded-full bg-accent flex items-center justify-center text-white text-xs font-bold uppercase tracking-widest hover:scale-110 transition-transform">
                             Let's Talk
-                        </a>
+                        </Link>
                     </MagneticButton>
                 </div>
             </section>
 
             <footer className="py-12 border-t border-white/5 text-center text-secondary text-[9px] uppercase tracking-[0.4em]">
-                PixelDperfect™ // Precision UI Engineering
+                PixelDperfect (TM) // Creative UI Engineering
             </footer>
         </main>
     );
