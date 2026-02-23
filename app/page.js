@@ -353,31 +353,42 @@ export default function Home() {
         </div>
 
         <div className="flex-1 relative bg-zinc-950 flex items-center justify-center p-12 overflow-hidden min-h-[500px]">
-          {/* Immersive Geometric Motion */}
+          <div className="absolute inset-0 pixel-grid opacity-20" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12),_transparent_55%)]" />
+
           <motion.div
-            animate={{
-              rotate: [0, 90, 180, 270, 360],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="w-[30vw] h-[30vw] border border-white/5 rounded-full relative perspective-1000"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative z-10 w-full max-w-xl"
           >
-            {[0, 45, 90, 135].map((rotation) => (
-              <div
-                key={rotation}
-                className="absolute inset-0 border border-white/5 rounded-full"
-                style={{ transform: `rotateX(${rotation}deg)` }}
-              />
-            ))}
-            <motion.div
-              animate={{ y: [-20, 20, -20] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-accent rounded-full shadow-[0_0_40px_rgba(59,130,246,0.6)]"
-            />
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-8 h-px bg-accent" />
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">Skill Matrix</span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {['NEXT.JS', 'REACT', 'FRAMER', 'GLSL', 'THREE.JS', 'TAILWIND', 'TYPESCRIPT', 'GSAP', 'WEB AUDIO', 'LENIS'].map((skill) => (
+                <div
+                  key={skill}
+                  className="group/skill border border-white/10 rounded-2xl px-4 py-5 bg-white/2 hover:bg-white/5 transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono tracking-widest text-white/80">{skill}</span>
+                    <span className="text-[9px] text-accent">++</span>
+                  </div>
+                  <div className="mt-4 h-px bg-white/10 overflow-hidden">
+                    <div className="h-px w-2/3 bg-accent/60 group-hover/skill:w-full transition-all duration-700" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 text-[10px] uppercase tracking-[0.3em] text-secondary flex items-center gap-3">
+              <span className="w-8 h-px bg-white/20" />
+              Calibrated For Real-Time Interfaces
+            </div>
           </motion.div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-[25vw] font-bold text-white/2 tracking-tighter select-none">PXL</div>
-          </div>
         </div>
       </section>
 
@@ -485,25 +496,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Technical Stack Marquee */}
-      <section className="py-24 border-y border-white/5 bg-background overflow-hidden">
-        <div className="flex whitespace-nowrap gap-24 animate-marquee hover:pause-marquee cursor-default">
-          {['NEXT.JS', 'REACT', 'FRAMER MOTION', 'GLSL', 'THREE.JS', 'TAILWIND', 'TYPESCRIPT', 'GSAP', 'WEB AUDIO', 'LENIS'].map((tech) => (
-            <div key={tech} className="flex items-center gap-6">
-              <span className="text-6xl md:text-8xl font-medium tracking-tighter text-zinc-800 hover:text-white transition-colors uppercase select-none">{tech}</span>
-              <div className="w-4 h-4 rounded-full bg-accent opacity-20" />
-            </div>
-          ))}
-          {/* Duplicate for infinite effect */}
-          {['NEXT.JS', 'REACT', 'FRAMER MOTION', 'GLSL', 'THREE.JS', 'TAILWIND', 'TYPESCRIPT', 'GSAP', 'WEB AUDIO', 'LENIS'].map((tech) => (
-            <div key={`${tech}-2`} className="flex items-center gap-6">
-              <span className="text-6xl md:text-8xl font-medium tracking-tighter text-zinc-800 hover:text-white transition-colors uppercase select-none">{tech}</span>
-              <div className="w-4 h-4 rounded-full bg-accent opacity-20" />
-            </div>
-          ))}
         </div>
       </section>
 
