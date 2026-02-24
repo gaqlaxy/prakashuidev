@@ -12,14 +12,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "pixelDperfect // Creative UI Developer & Interaction Designer",
-  description: "Creative UI development, interaction design, and motion-forward interfaces for the modern web.",
+  title: "Prakash // Creative UI Developer & Interaction Designer",
+  description:
+    "Creative UI development, interaction design, and motion-forward interfaces for the modern web.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="selection:bg-accent selection:text-white">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <div className="grain-overlay" />
         {children}
       </body>
