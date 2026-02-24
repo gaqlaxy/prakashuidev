@@ -39,7 +39,7 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[100dvh] flex flex-col justify-center px-6 md:px-24 py-32">
+      <section className="relative min-h-dvh flex flex-col justify-center px-6 md:px-24 py-32">
         {/* Cinematic Background Mesh */}
         <div className="absolute inset-0 z-0 opacity-30 pointer-events-none overflow-hidden">
           <div className="absolute top-[-20%] right-[-10%] w-[80%] h-[80%] bg-accent/10 blur-[150px] rounded-full animate-pulse" />
@@ -103,9 +103,9 @@ export default function Home() {
             <div className="w-full lg:w-[400px] flex flex-col gap-12 lg:pt-24 self-end lg:self-start">
               <motion.div variants={fadeInUp} className="space-y-6">
                 <p className="text-secondary leading-relaxed text-xl font-light">
-                  I craft expressive UI systems where motion, typography, and
-                  interaction design converge into memorable digital
-                  experiences.
+                  I specialize in building high-performance, scalable web
+                  applications and design systems that bridge the gap between
+                  complex engineering and intuitive user experience.
                 </p>
                 <div className="flex items-center gap-4 text-xs font-mono text-accent/60">
                   <Globe size={16} />
@@ -154,7 +154,7 @@ export default function Home() {
           <span className="text-[9px] uppercase tracking-[0.3em] text-secondary vertical-text mb-4">
             Explore
           </span>
-          <div className="w-[1px] h-24 bg-gradient-to-b from-accent to-transparent" />
+          <div className="w-px h-24 bg-linear-to-b from-accent to-transparent" />
         </motion.div>
       </section>
 
@@ -194,9 +194,9 @@ export default function Home() {
 
           <BentoGrid>
             <BentoCard
-              title="Aura OS // v2.0"
-              description="Custom physics-based window manager and canvas-driven workspace system. Zero-latency interaction models."
-              tag="Engine: Canvas/Physics"
+              title="Aura // Enterprise SaaS"
+              description="High-performance data visualization dashboard and cloud management system. Built for scalability and real-time monitoring."
+              tag="Stack: Next.js/TypeScript"
               className="md:col-span-8 min-h-[500px]"
             >
               <div className="relative w-full h-full bg-zinc-950/50 rounded-3xl overflow-hidden group/img aspect-video flex items-center justify-center border border-white/5">
@@ -207,10 +207,10 @@ export default function Home() {
                   className="relative z-20 flex flex-col items-center gap-4"
                 >
                   <div className="text-[8vw] font-mono text-white/10 select-none tracking-tighter leading-none">
-                    AURA_SYS
+                    AURA_PLATFORM
                   </div>
                   <div className="flex gap-2">
-                    {["NEXT.JS", "FRAMER MOTION", "CANVAS"].map((tech) => (
+                    {["NEXT.JS", "TYPESCRIPT", "RECHARTS"].map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-1 text-[8px] font-mono border border-white/10 text-secondary bg-white/5"
@@ -220,66 +220,48 @@ export default function Home() {
                     ))}
                   </div>
                 </motion.div>
-                {/* Visual Engineering Mockup: Floating "Nodes" */}
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{
-                      y: [0, -20, 0],
-                      x: [0, 10, 0],
-                      opacity: [0.2, 0.5, 0.2],
-                    }}
-                    transition={{
-                      duration: 4 + i,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: i * 0.5,
-                    }}
-                    className="absolute w-24 h-24 border border-accent/20 rounded-lg flex items-center justify-center bg-accent/5 backdrop-blur-sm"
-                    style={{
-                      top: `${20 + i * 15}%`,
-                      left: `${10 + i * 20}%`,
-                      transform: `rotate(${i * 15}deg)`,
-                    }}
-                  >
-                    <div className="w-1 h-1 bg-accent rounded-full" />
-                  </motion.div>
-                ))}
+                {/* Visual Engineering Mockup: Data Points */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="grid grid-cols-8 gap-2 opacity-10">
+                    {Array.from({ length: 32 }).map((_, i) => (
+                      <div key={i} className="w-12 h-12 border border-accent/20 rounded-sm" />
+                    ))}
+                  </div>
+                </div>
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/img:translate-x-full transition-transform duration-1000 ease-in-out" />
               </div>
             </BentoCard>
 
             <BentoCard
-              title="Protocol Mesh"
-              description="Experimental 3D visualization layer using custom GLSL shaders and hardware acceleration."
-              tag="Engine: WebGL/GLSL"
+              title="Protocol // Fintech"
+              description="Institutional-grade digital asset platform with hardware-accelerated trading visualizations and secure flows."
+              tag="Stack: React/WebGL"
               className="md:col-span-4 min-h-[500px]"
             >
               <div className="relative h-full flex flex-col justify-end p-4 overflow-hidden group/mesh">
                 <div className="absolute inset-0 bg-zinc-950 -z-10" />
                 {/* Simulated Shader Background */}
                 <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
-                  <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--color-accent)_0%,_transparent_70%)] opacity-20 blur-3xl animate-pulse" />
+                  <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,var(--color-accent)_0%,transparent_70%)] opacity-20 blur-3xl animate-pulse" />
                   <div className="absolute inset-0 pixel-grid" />
                 </div>
 
                 <div className="flex flex-col gap-6 mt-8 relative z-20">
                   <div className="space-y-4">
                     <div className="text-[8px] font-mono text-accent">
-                      SHADER_SOURCE://0X8F21
+                      ORDER_ENGINE://ACTIVE
                     </div>
-                    <pre className="text-[10px] font-mono text-zinc-500 overflow-hidden leading-tight">
-                      {`void main() {
-  vec2 uv = fragCoord;
-  float d = length(uv);
-  gl_FragColor = vec4(d);
-}`}
-                    </pre>
+                    <div className="text-[10px] font-mono text-zinc-500 overflow-hidden leading-tight bg-black/40 p-3 rounded border border-white/5">
+                      {`> EXECUTING_LIMIT_ORDER
+> STATUS: CONFIRMED
+> ASSET: BTC/USD
+> VOLUME: 4.25`}
+                    </div>
                   </div>
                   {[1, 2, 3].map((i) => (
                     <div key={i} className="space-y-2">
                       <div className="flex justify-between text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
-                        <span>Buffer_{i}</span>
+                        <span>Liquidity_{i}</span>
                         <span>{Math.floor(Math.random() * 100)}%</span>
                       </div>
                       <div className="h-px bg-white/5 overflow-hidden">
@@ -297,18 +279,21 @@ export default function Home() {
             </BentoCard>
 
             <BentoCard
-              title="Sonic Interface"
-              description="Web-audio synthesizer with spatial 3D interaction and generative UI states."
-              tag="Engine: Web Audio"
+              title="Sonic // Luxury E-com"
+              description="Premium headless commerce experience for high-end retail. Motion-driven storytelling with Stripe integration."
+              tag="Stack: Next.js/GSAP"
               className="md:col-span-12 lg:col-span-5 min-h-[450px]"
             >
               <div className="mt-8 flex items-center justify-center h-full min-h-[250px] relative overflow-hidden bg-zinc-950 rounded-2xl">
                 <div className="absolute inset-0 opacity-10">
                   <div className="h-px w-full bg-linear-to-r from-transparent via-accent to-transparent absolute top-1/2" />
                 </div>
+                <div className="relative z-10 text-center">
+                  <div className="text-[10px] font-mono text-accent mb-4 tracking-[0.4em]">COLLECTION_2026</div>
+                  <div className="text-4xl font-light italic text-white/40 tracking-tighter">Essential // Material</div>
+                </div>
                 <motion.div
                   animate={{
-                    rotate: [0, 360],
                     scale: [1, 1.05, 1],
                   }}
                   transition={{
@@ -319,45 +304,15 @@ export default function Home() {
                   className="w-48 h-48 rounded-full border border-white/5 flex items-center justify-center relative"
                 >
                   <div className="absolute inset-0 border border-accent/20 rounded-full animate-ping" />
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                    transition={{
-                      duration: 0.5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="w-32 h-32 rounded-full border border-accent/40 flex items-center justify-center"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-accent shadow-[0_0_40px_var(--color-accent)]" />
-                  </motion.div>
+                  <div className="w-32 h-32 rounded-full border border-accent/40 flex items-center justify-center backdrop-blur-3xl" />
                 </motion.div>
-                {/* Frequency Bars */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1 h-32 items-end opacity-20">
-                  {Array.from({ length: 40 }).map((_, i) => (
-                    <motion.div
-                      key={i}
-                      animate={{
-                        height: [
-                          `${Math.random() * 100}%`,
-                          `${Math.random() * 100}%`,
-                        ],
-                      }}
-                      transition={{
-                        duration: 0.2,
-                        repeat: Infinity,
-                        repeatType: "mirror",
-                      }}
-                      className="w-[2px] bg-accent"
-                    />
-                  ))}
-                </div>
               </div>
             </BentoCard>
 
             <BentoCard
-              title="Motion Core"
-              description="High-performance layout transition engine for fluid Next.js 15 page orchestrations."
-              tag="Engine: Layout API"
+              title="Motion // Design Systems"
+              description="Scalable UI architecture and animation libraries powering diverse products with performance and accessibility."
+              tag="Stack: Storybook/Framer"
               className="md:col-span-12 lg:col-span-7 min-h-[450px]"
             >
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 h-full">
@@ -369,7 +324,7 @@ export default function Home() {
                     className="aspect-square bg-zinc-900 border border-white/5 rounded-2xl flex flex-col items-center justify-center p-4 group/item relative overflow-hidden"
                   >
                     <div className="absolute top-2 left-2 text-[8px] font-mono text-zinc-700">
-                      0{i}_ORCH
+                      MOD_{i}
                     </div>
                     <motion.div
                       layout
@@ -450,7 +405,7 @@ export default function Home() {
 
         <div className="flex-1 relative bg-zinc-950 flex items-center justify-center p-12 overflow-hidden min-h-[500px]">
           <div className="absolute inset-0 pixel-grid opacity-20" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12),_transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -466,7 +421,7 @@ export default function Home() {
             </div>
 
             <div className="relative border border-white/10 rounded-3xl bg-white/2 p-6 overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15),_transparent_60%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.15),transparent_60%)]" />
               <div className="absolute -right-24 -top-24 w-56 h-56 rounded-full border border-white/10 opacity-30" />
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-6">
@@ -570,26 +525,26 @@ export default function Home() {
             {[
               {
                 id: "01",
-                title: "Interface Craft",
-                desc: "Designing expressive UI systems with Next.js and Framer Motion. Built for clarity and emotion.",
+                title: "UI Architecture",
+                desc: "Engineering scalable frontend foundations with Next.js and TypeScript. Focused on modularity and performance.",
                 icon: <Code size={32} />,
               },
               {
                 id: "02",
-                title: "Visual Storytelling",
-                desc: "Shaping the product narrative through typography, layout rhythm, and cinematic flow.",
+                title: "Product Strategy",
+                desc: "Aligning user needs with technical possibilities to build intuitive, conversion-focused interfaces.",
                 icon: <Palette size={32} />,
               },
               {
                 id: "03",
-                title: "Motion Design",
-                desc: "Building fluid, tactile interactions that feel intentional and delightfully human.",
+                title: "Motion Systems",
+                desc: "Creating fluid animation languages that enhance usability and brand identity across all touchpoints.",
                 icon: <ChartLineUp size={32} />,
               },
               {
                 id: "04",
-                title: "Performance Artistry",
-                desc: "Optimizing vitals, accessibility, and polish without sacrificing beauty.",
+                title: "Technical Excellence",
+                desc: "Optimizing Core Web Vitals, accessibility, and clean code standards for long-term maintainability.",
                 icon: <Lightning size={32} />,
               },
             ].map((service, i) => (
@@ -599,7 +554,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group py-16 flex flex-col md:flex-row items-start gap-12 group"
+                className="group py-16 flex flex-col md:flex-row items-center gap-12 group"
               >
                 <div className="flex items-center gap-6 md:w-1/3">
                   <span className="text-accent font-mono text-sm">

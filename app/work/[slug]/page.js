@@ -99,7 +99,7 @@ export default function ProjectDetailPage({ params }) {
 
                         <div className="relative border border-white/10 rounded-3xl bg-zinc-950 p-10 overflow-hidden">
                             <div className="absolute inset-0 opacity-40">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.2),_transparent_60%)]" />
+                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.2),transparent_60%)]" />
                                 <div className="absolute inset-0 pixel-grid opacity-30" />
                             </div>
                             <div className="relative z-10">
@@ -112,7 +112,7 @@ export default function ProjectDetailPage({ params }) {
                                 <div className="mt-10">
                                     <MagneticButton>
                                         <a href="/work" className="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest font-bold text-white/80 hover:text-accent transition-colors">
-                                            Back to Archive <ArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                            Back to Showcase <ArrowUpRight className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                                         </a>
                                     </MagneticButton>
                                 </div>

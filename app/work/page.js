@@ -9,7 +9,7 @@ import { projects } from "./projects";
 
 export default function WorkPage() {
   const [filter, setFilter] = useState("All");
-  const categories = ["All", "Physics", "GLSL", "Audio", "Architecture"];
+  const categories = ["All", "Product", "Finance", "E-commerce", "Infrastructure", "Community"];
 
   const filteredProjects =
     filter === "All" ? projects : projects.filter((p) => p.category === filter);
@@ -35,9 +35,9 @@ export default function WorkPage() {
                 </span>
               </motion.div>
               <h1 className="text-6xl md:text-[8vw] font-medium tracking-tighter leading-[0.85] mb-8">
-                The Creative <br />
+                The Project <br />
                 <span className="italic font-light text-secondary">
-                  Archive.
+                  Showcase.
                 </span>
               </h1>
             </div>
@@ -48,11 +48,10 @@ export default function WorkPage() {
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-4 py-2 rounded-full border text-[10px] uppercase font-mono tracking-widest transition-all ${
-                    filter === cat
+                  className={`px-4 py-2 rounded-full border text-[10px] uppercase font-mono tracking-widest transition-all ${filter === cat
                       ? "bg-accent border-accent text-white"
                       : "border-white/10 text-secondary hover:border-white/30"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
