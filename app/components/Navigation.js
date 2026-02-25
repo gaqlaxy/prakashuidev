@@ -16,7 +16,7 @@ import {
 const menuItems = [
   { label: "Work", href: "/work", id: "01" },
   { label: "Services", href: "/services", id: "02" },
-  { label: "Contact", href: "/#contact", id: "03" },
+  { label: "Contact", href: "/contact", id: "03" },
 ];
 
 export default function Navigation() {
@@ -48,11 +48,11 @@ export default function Navigation() {
               href="/"
               className="w-8 h-8 rounded-full bg-accent flex items-center justify-center"
             >
-              <span className="text-white font-bold text-xs">P.</span>
+              <span className="text-white font-bold text-xs">P</span>
             </Link>
           </MagneticButton>
           <span className="font-medium tracking-tight text-sm hidden sm:block">
-            Prakash
+
           </span>
         </div>
 
@@ -81,7 +81,7 @@ export default function Navigation() {
             <List size={20} weight="bold" />
           </button>
           <button className="hidden md:flex px-6 py-2 rounded-full bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-accent hover:text-white transition-colors">
-            Hire Me
+            Start a Project
           </button>
         </MagneticButton>
       </motion.nav>

@@ -142,7 +142,7 @@ export default function ServicesPage() {
             </section>
 
             <footer className="py-12 border-t border-white/5 text-center text-secondary text-[9px] uppercase tracking-[0.4em]">
-                PixelDperfect (TM) // Creative UI Engineering
+                Prakash (TM) // Creative UI Engineering
             </footer>
         </main>
     );

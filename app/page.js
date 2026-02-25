@@ -8,6 +8,8 @@ import MagneticButton from "./components/MagneticButton";
 import BentoGrid from "./components/BentoGrid";
 import BentoCard from "./components/BentoCard";
 import AnimatedTypography from "./components/AnimatedTypography";
+import Footer from "./components/Footer";
+import ContactCTA from "./components/ContactCTA";
 import {
   ArrowUpRight,
   Cpu,
@@ -62,7 +64,7 @@ export default function Home() {
               >
                 <span className="w-8 h-px bg-accent" />
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
-                  Creative UI Developer // v4.1
+                  Creative UI Developer
                 </span>
               </motion.div>
 
@@ -109,11 +111,11 @@ export default function Home() {
                 </p>
                 <div className="flex items-center gap-4 text-xs font-mono text-accent/60">
                   <Globe size={16} />
-                  <span>INDEPENDENT // BENGALURU // EST. 2026</span>
+                  <span>INDEPENDENT // CHENNAI // EST. 2026</span>
                 </div>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 variants={fadeInUp}
                 className="grid grid-cols-2 gap-px bg-white/5 rounded-3xl overflow-hidden glass-refraction border border-white/5"
               >
@@ -139,23 +141,34 @@ export default function Home() {
                     Render Floor
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
+
+              <div className="relative z-10 flex flex-col gap-6">
+                <div className="flex justify-between items-center">
+                  <span className="text-[9px] font-mono uppercase tracking-[0.4em] text-accent">Availability Matrix</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[9px] uppercase tracking-widest opacity-60">Ready for Launch</span>
+                  </div>
+                </div>
+                <p className="text-sm font-light text-zinc-400 leading-relaxed">
+                  Currently accepting 2 select projects for Q2 2026. <br />
+                  Estimated response time: <span className="text-white font-mono">{"< 24h"}</span>
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <div className="text-[8px] uppercase tracking-widest opacity-40">Local Time</div>
+                    <div className="text-xs font-mono">15:42 IST</div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-12 left-6 md:left-24 flex flex-col items-start gap-6"
-        >
-          <span className="text-[9px] uppercase tracking-[0.3em] text-secondary vertical-text mb-4">
-            Explore
-          </span>
-          <div className="w-px h-24 bg-linear-to-b from-accent to-transparent" />
-        </motion.div>
+
       </section>
 
       {/* Featured Work Section */}
@@ -662,94 +675,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer / Contact Section */}
-      <footer
-        id="contact"
-        className="min-h-dvh bg-background text-foreground flex flex-col justify-between p-6 md:p-24 relative overflow-hidden"
-      >
-        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] border border-white/2 rounded-full" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] border border-white/5 rounded-full" />
-        </div>
-
-        <div className="relative z-10 pt-20">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-3 mb-12"
-          >
-            <span className="w-8 h-px bg-accent" />
-            <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
-              Get in touch // 04
-            </span>
-          </motion.div>
-
-          <h2 className="text-6xl md:text-[14vw] font-medium tracking-tighter leading-[0.75] mb-24">
-            Let's build <br />
-            <span className="italic font-light text-secondary">together.</span>
-          </h2>
-
-          <div className="flex flex-col lg:flex-row gap-16 items-start justify-between">
-            <MagneticButton>
-              <a
-                href="mailto:prakash@pixeldperfect.com"
-                className="group text-3xl md:text-7xl font-light tracking-tight hover:text-accent transition-colors flex items-center gap-8"
-              >
-                prakash@pixeldperfect.com
-                <div className="w-16 h-16 md:w-32 md:h-32 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:scale-110 transition-all duration-500">
-                  <ArrowUpRight
-                    weight="bold"
-                    className="group-hover:rotate-45 transition-transform text-white w-8 h-8 md:w-12 md:h-12"
-                  />
-                </div>
-              </a>
-            </MagneticButton>
-
-            <div className="grid grid-cols-2 gap-16 text-secondary text-xs font-mono tracking-[0.2em]">
-              <div className="space-y-4">
-                <span className="text-accent underline underline-offset-8">
-                  STUDIO
-                </span>
-                <p className="leading-loose uppercase">
-                  New Perungalathur <br />
-                  Chennai, India <br />
-                  EST. 2026
-                </p>
-              </div>
-              <div className="space-y-4">
-                <span className="text-accent underline underline-offset-8">
-                  SOCIAL
-                </span>
-                <div className="flex flex-col gap-2">
-                  <a href="#" className="hover:text-white transition-colors">
-                    DRIBBBLE
-                  </a>
-                  <a href="#" className="hover:text-white transition-colors">
-                    X / TWITTER
-                  </a>
-                  <a href="#" className="hover:text-white transition-colors">
-                    LINKEDIN
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative z-10 border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 text-secondary text-[9px] uppercase tracking-[0.4em]">
-          <div>Prakash (TM) // All Rights Reserved</div>
-          <div className="flex gap-12">
-            <a href="#" className="hover:text-accent transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-accent transition-colors">
-              Terms of Service
-            </a>
-          </div>
-          <div>Copyright 2026 // v4.0.2</div>
-        </div>
-      </footer>
+      <ContactCTA />
+      <Footer />
     </main>
   );
 }
