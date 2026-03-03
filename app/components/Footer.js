@@ -25,22 +25,38 @@ export default function Footer() {
     <footer className="w-full bg-background border-t border-white/5 px-6 md:px-24 py-12">
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end md:items-center gap-12 text-[10px] uppercase tracking-[0.3em] text-secondary">
         <div className="flex flex-col gap-2">
-          <span className="opacity-40">Version</span>
-          <span className="text-foreground">2026 © Edition</span>
-        </div>
-
-        <div className="flex flex-col gap-2">
           <span className="opacity-40">Local Time</span>
-          <span className="text-foreground font-mono">{time || "00:00"} IST</span>
+          <span className="text-foreground font-mono">
+            {time || "00:00"} IST
+          </span>
         </div>
 
         <div className="flex flex-col gap-2 md:items-end">
           <span className="opacity-40">Socials</span>
           <div className="flex gap-6">
-            <a href="#" className="text-foreground hover:text-accent transition-colors">Awwwards</a>
-            <a href="#" className="text-foreground hover:text-accent transition-colors">Instagram</a>
-            <a href="#" className="text-foreground hover:text-accent transition-colors">Twitter</a>
-            <a href="#" className="text-foreground hover:text-accent transition-colors">LinkedIn</a>
+            {/* <a
+              href="#"
+              className="text-foreground hover:text-accent transition-colors"
+            >
+              Awwwards
+            </a> */}
+            <a
+              href="https://www.instagram.com/prakashv4v/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-accent transition-colors"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/prakash1k96/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-accent transition-colors"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>
