@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 export default function AnimatedTypography({
     text,
@@ -9,6 +9,7 @@ export default function AnimatedTypography({
     delay = 0,
     variant = "blur-in"
 }) {
+    const shouldReduceMotion = useReducedMotion();
     const letters = Array.from(text);
 
     const variants = {
@@ -29,6 +30,10 @@ export default function AnimatedTypography({
             }
         })
     };
+
+    if (shouldReduceMotion) {
+        return <span className={className}>{text}</span>;
+    }
 
     return (
         <span className={className}>

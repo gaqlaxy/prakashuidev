@@ -116,3 +116,40 @@ body::after {
   opacity: 0.2;
   z-index: 9999;
 }
+
+@keyframes slow-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.slow-pulse {
+  animation: slow-pulse 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain-overlay {
+    display: none;
+  }
+
+  .pixel-grid {
+    background-image: none;
+  }
+
+  .glass-refraction {
+    backdrop-filter: none;
+  }
+
+  .animate-marquee,
+  .animate-pulse,
+  .animate-ping,
+  .slow-pulse {
+    animation: none !important;
+  }
+}

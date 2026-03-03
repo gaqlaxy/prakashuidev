@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 import {
   List,
@@ -35,7 +35,8 @@ export default function Navigation() {
   }, [isOpen]);
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
+      <>
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -203,6 +204,7 @@ export default function Navigation() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+      </>
+    </MotionConfig>
   );
 }

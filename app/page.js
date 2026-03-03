@@ -1,8 +1,5 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Navigation from "./components/Navigation";
 import MagneticButton from "./components/MagneticButton";
 import BentoGrid from "./components/BentoGrid";
@@ -10,30 +7,17 @@ import BentoCard from "./components/BentoCard";
 import AnimatedTypography from "./components/AnimatedTypography";
 import Footer from "./components/Footer";
 import ContactCTA from "./components/ContactCTA";
+import LocalTime from "./components/LocalTime";
 import {
   ArrowUpRight,
-  Cpu,
   Lightning,
   Globe,
   Code,
   Palette,
   ChartLineUp,
-} from "@phosphor-icons/react";
+} from "@phosphor-icons/react/ssr";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { type: "spring", stiffness: 100, damping: 20 },
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3,
-    },
-  },
-};
+const LIQUIDITY_LEVELS = [78, 54, 91];
 
 export default function Home() {
   return (
@@ -48,25 +32,16 @@ export default function Home() {
           <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-900/5 blur-[120px] rounded-full" />
         </div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="relative z-10 w-full max-w-7xl mx-auto"
-        >
+        <div className="relative z-10 w-full max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-start justify-between gap-16 lg:gap-24">
             {/* Left Column: Massive Asymmetric Headline */}
             <div className="flex-1 max-w-4xl">
-              <motion.div
-                variants={fadeInUp}
-                className="flex items-center gap-3 mb-8"
-              >
+              <div className="flex items-center gap-3 mb-8">
                 <span className="w-8 h-px bg-accent" />
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
                   Creative UI Developer
                 </span>
-              </motion.div>
+              </div>
 
               <h1 className="text-6xl md:text-[7vw] font-medium tracking-tighter leading-[0.85] mb-12">
                 <AnimatedTypography text="Crafting" /> <br />
@@ -77,7 +52,7 @@ export default function Home() {
                 <AnimatedTypography text="that feel alive." delay={0.5} />
               </h1>
 
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-6">
+              <div className="flex flex-wrap gap-6">
                 <MagneticButton>
                   <Link
                     href="/work"
@@ -98,12 +73,12 @@ export default function Home() {
                     Creative Process
                   </Link>
                 </MagneticButton>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right Column: Technical Stats / Sidebar */}
             <div className="w-full lg:w-[400px] flex flex-col gap-12 lg:pt-24 self-end lg:self-start">
-              <motion.div variants={fadeInUp} className="space-y-6">
+              <div className="space-y-6">
                 <p className="text-secondary leading-relaxed text-xl font-light">
                   I specialize in building high-performance, scalable web
                   applications and design systems that bridge the gap between
@@ -113,7 +88,7 @@ export default function Home() {
                   <Globe size={16} />
                   <span>INDEPENDENT // CHENNAI // EST. 2026</span>
                 </div>
-              </motion.div>
+              </div>
 
               {/* <motion.div
                 variants={fadeInUp}
@@ -158,14 +133,14 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <div className="text-[8px] uppercase tracking-widest opacity-40">Local Time</div>
-                    <div className="text-xs font-mono">15:42 IST</div>
+                    <div className="text-xs font-mono"><LocalTime /></div>
                   </div>
 
                 </div>
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll Indicator */}
 
@@ -176,17 +151,12 @@ export default function Home() {
         <div className="w-full max-w-7xl mx-auto">
           <header className="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
             <div className="max-w-2xl">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-3 mb-6"
-              >
+              <div className="flex items-center gap-3 mb-6">
                 <span className="w-8 h-px bg-accent" />
                 <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
                   Selected Works // 01-04
                 </span>
-              </motion.div>
+              </div>
               <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-zinc-900 leading-[0.9]">
                 Designed for <br />
                 <span className="italic font-light text-zinc-300">
@@ -214,11 +184,7 @@ export default function Home() {
             >
               <div className="relative w-full h-full bg-zinc-950/50 rounded-3xl overflow-hidden group/img aspect-video flex items-center justify-center border border-white/5">
                 <div className="absolute inset-0 pixel-grid opacity-20" />
-                <motion.div
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  className="relative z-20 flex flex-col items-center gap-4"
-                >
+                <div className="relative z-20 flex flex-col items-center gap-4">
                   <div className="text-[8vw] font-mono text-white/10 select-none tracking-tighter leading-none">
                     AURA_PLATFORM
                   </div>
@@ -232,7 +198,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
                 {/* Visual Engineering Mockup: Data Points */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="grid grid-cols-8 gap-2 opacity-10">
@@ -264,25 +230,23 @@ export default function Home() {
                     <div className="text-[8px] font-mono text-accent">
                       ORDER_ENGINE://ACTIVE
                     </div>
-                    <div className="text-[10px] font-mono text-zinc-500 overflow-hidden leading-tight bg-black/40 p-3 rounded border border-white/5">
+                  <div className="text-[10px] font-mono text-zinc-500 overflow-hidden leading-tight bg-black/40 p-3 rounded border border-white/5">
                       {`> EXECUTING_LIMIT_ORDER
 > STATUS: CONFIRMED
 > ASSET: BTC/USD
 > VOLUME: 4.25`}
                     </div>
-                  </div>
-                  {[1, 2, 3].map((i) => (
+                </div>
+                  {LIQUIDITY_LEVELS.map((level, i) => (
                     <div key={i} className="space-y-2">
                       <div className="flex justify-between text-[10px] font-mono text-zinc-400 uppercase tracking-widest">
-                        <span>Liquidity_{i}</span>
-                        <span>{Math.floor(Math.random() * 100)}%</span>
+                        <span>Liquidity_{i + 1}</span>
+                        <span>{level}%</span>
                       </div>
                       <div className="h-px bg-white/5 overflow-hidden">
-                        <motion.div
+                        <div
                           className="h-full bg-accent"
-                          initial={{ width: "0%" }}
-                          whileInView={{ width: `${Math.random() * 80 + 20}%` }}
-                          transition={{ duration: 1.5, delay: i * 0.1 }}
+                          style={{ width: `${level}%` }}
                         />
                       </div>
                     </div>
@@ -305,20 +269,10 @@ export default function Home() {
                   <div className="text-[10px] font-mono text-accent mb-4 tracking-[0.4em]">COLLECTION_2026</div>
                   <div className="text-4xl font-light italic text-white/40 tracking-tighter">Essential // Material</div>
                 </div>
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="w-48 h-48 rounded-full border border-white/5 flex items-center justify-center relative"
-                >
+                <div className="w-48 h-48 rounded-full border border-white/5 flex items-center justify-center relative slow-pulse">
                   <div className="absolute inset-0 border border-accent/20 rounded-full animate-ping" />
                   <div className="w-32 h-32 rounded-full border border-accent/40 flex items-center justify-center backdrop-blur-3xl" />
-                </motion.div>
+                </div>
               </div>
             </BentoCard>
 
@@ -330,27 +284,22 @@ export default function Home() {
             >
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 h-full">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                  <motion.div
+                  <div
                     key={i}
-                    layoutId={`box-${i}`}
-                    whileHover={{ scale: 0.95, rotate: i % 2 === 0 ? 2 : -2 }}
-                    className="aspect-square bg-zinc-900 border border-white/5 rounded-2xl flex flex-col items-center justify-center p-4 group/item relative overflow-hidden"
+                    className="aspect-square bg-zinc-900 border border-white/5 rounded-2xl flex flex-col items-center justify-center p-4 group/item relative overflow-hidden transition-transform duration-300 hover:scale-[0.98]"
                   >
                     <div className="absolute top-2 left-2 text-[8px] font-mono text-zinc-700">
                       MOD_{i}
                     </div>
-                    <motion.div
-                      layout
-                      className="w-12 h-12 border border-accent/40 rounded-lg flex items-center justify-center"
-                    >
+                    <div className="w-12 h-12 border border-accent/40 rounded-lg flex items-center justify-center">
                       <div className="w-4 h-4 bg-accent/20 rounded-full" />
-                    </motion.div>
+                    </div>
                     <div className="mt-4 w-full h-px bg-white/5" />
                     <div className="mt-4 flex gap-1">
                       <div className="w-1 h-1 bg-accent/40 rounded-full" />
                       <div className="w-1 h-1 bg-accent/20 rounded-full" />
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </BentoCard>
@@ -364,17 +313,12 @@ export default function Home() {
         className="min-h-dvh bg-background text-foreground flex flex-col lg:flex-row relative overflow-hidden"
       >
         <div className="flex-1 p-6 md:p-24 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-3 mb-12"
-          >
+          <div className="flex items-center gap-3 mb-12">
             <span className="w-8 h-px bg-accent" />
             <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
               The Protocol // 02
             </span>
-          </motion.div>
+          </div>
 
           <h2 className="text-4xl md:text-7xl font-medium tracking-tighter leading-[0.9] mb-12">
             I don't ship <br />
@@ -420,12 +364,7 @@ export default function Home() {
           <div className="absolute inset-0 pixel-grid opacity-20" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_55%)]" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative z-10 w-full max-w-xl"
-          >
+          <div className="relative z-10 w-full max-w-xl">
             <div className="flex items-center gap-3 mb-8">
               <span className="w-8 h-px bg-accent" />
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
@@ -492,7 +431,7 @@ export default function Home() {
               <span className="w-8 h-px bg-white/20" />
               Calibrated For Expressive UI
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -500,17 +439,12 @@ export default function Home() {
       <section id="services" className="bg-white py-32 px-6 md:px-24 relative">
         <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-24 items-start">
           <div className="lg:w-1/3 lg:sticky lg:top-32">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 mb-8"
-            >
+            <div className="flex items-center gap-3 mb-8">
               <span className="w-8 h-px bg-accent" />
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
                 Expertise // 03
               </span>
-            </motion.div>
+            </div>
             <h2 className="text-5xl md:text-8xl font-medium tracking-tighter text-zinc-900 leading-[0.85]">
               Creative <br />
               <span className="italic font-light text-zinc-300">
@@ -561,12 +495,8 @@ export default function Home() {
                 icon: <Lightning size={32} />,
               },
             ].map((service, i) => (
-              <motion.div
+              <div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="group py-16 flex flex-col md:flex-row items-center gap-12 group"
               >
                 <div className="flex items-center gap-6 md:w-1/3">
@@ -585,7 +515,7 @@ export default function Home() {
                     {service.desc}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -599,17 +529,12 @@ export default function Home() {
         <div className="absolute inset-0 pixel-grid opacity-10 pointer-events-none" />
         <div className="w-full max-w-7xl mx-auto">
           <header className="mb-24">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 mb-8"
-            >
+            <div className="flex items-center gap-3 mb-8">
               <span className="w-8 h-px bg-accent" />
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-accent">
                 The Protocol // 04
               </span>
-            </motion.div>
+            </div>
             <h2 className="text-5xl md:text-8xl font-medium tracking-tighter leading-[0.85]">
               Creative <br />
               <span className="italic font-light text-zinc-500">
@@ -651,12 +576,8 @@ export default function Home() {
                 desc: "Precision deployment and post-launch iteration for continuous impact.",
               },
             ].map((item, i) => (
-              <motion.div
+              <div
                 key={item.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 className="p-12 border border-white/5 bg-white/2 hover:bg-white/5 transition-colors relative group"
               >
                 <span className="text-xs font-mono text-accent mb-6 block">
@@ -669,7 +590,7 @@ export default function Home() {
                   {item.desc}
                 </p>
                 <div className="absolute bottom-0 left-0 w-0 h-1 bg-accent group-hover:w-full transition-all duration-700" />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

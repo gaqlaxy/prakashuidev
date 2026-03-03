@@ -19,9 +19,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="selection:bg-accent selection:text-white">
+    <html
+      lang="en"
+      className="selection:bg-accent selection:text-white"
+      suppressHydrationWarning
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <div className="grain-overlay" />
         {children}

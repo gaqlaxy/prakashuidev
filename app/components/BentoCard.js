@@ -1,7 +1,7 @@
 'use client';
 
 import React, { memo } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -16,13 +16,14 @@ const BentoCard = memo(({
     children,
     tag,
 }) => {
+    const shouldReduceMotion = useReducedMotion();
     return (
         <div className={cn("group flex flex-col gap-6", className)}>
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 100, damping: 20 }}
                 className="relative flex-1 overflow-hidden rounded-[2.5rem] bg-white p-8 glass-refraction border-slate-200/50 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)]"
             >
                 <div className="absolute inset-0 z-0 bg-gradient-to-br from-transparent to-black/1 opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import MagneticButton from "./MagneticButton";
-import { ArrowDownLeft } from "@phosphor-icons/react";
 
 export default function ContactCTA() {
     return (
