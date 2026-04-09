@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
+import PageBackground from '../components/PageBackground';
 import { Code, Palette, ChartLineUp, Lightning, ArrowUpRight, Cpu, Globe, Infinity } from '@phosphor-icons/react';
 import MagneticButton from '../components/MagneticButton';
 import Link from 'next/link';
@@ -64,9 +65,8 @@ export default function ServicesPage() {
     ];
 
     return (
-        <main className="bg-background text-foreground min-h-dvh">
-            <div className="fixed inset-0 pixel-grid pointer-events-none opacity-20" />
-            <div className="grain-overlay" />
+        <main className="relative bg-background text-foreground min-h-dvh">
+            <PageBackground />
             <Navigation />
 
             <section className="pt-48 pb-24 px-6 md:px-24">

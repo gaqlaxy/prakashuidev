@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import MagneticButton from "../components/MagneticButton";
+import PageBackground from "../components/PageBackground";
 import {
   Envelope,
   MapPin,
@@ -17,7 +18,8 @@ import {
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-dvh bg-background text-foreground selection:bg-accent selection:text-white pixel-grid overflow-x-hidden">
+    <main className="relative min-h-dvh bg-background text-foreground selection:bg-accent selection:text-white overflow-x-hidden">
+      <PageBackground />
       <Navigation />
 
       <section className="relative pt-48 pb-32 px-6 md:px-24">

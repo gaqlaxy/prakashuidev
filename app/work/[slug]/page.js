@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Navigation from '../../components/Navigation';
 import MagneticButton from '../../components/MagneticButton';
+import PageBackground from '../../components/PageBackground';
 import { ArrowUpRight } from '@phosphor-icons/react';
 import { projects } from '../projects';
 
@@ -16,9 +17,8 @@ export default function ProjectDetailPage({ params }) {
     }
 
     return (
-        <main className="bg-background text-foreground min-h-dvh">
-            <div className="fixed inset-0 pixel-grid pointer-events-none opacity-20" />
-            <div className="grain-overlay" />
+        <main className="relative bg-background text-foreground min-h-dvh">
+            <PageBackground />
             <Navigation />
 
             <section className="pt-48 pb-24 px-6 md:px-24">

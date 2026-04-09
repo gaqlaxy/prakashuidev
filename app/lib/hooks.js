@@ -1,4 +1,5 @@
 import { useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Hook to safely handle motion preferences
@@ -11,10 +12,47 @@ export function useMotionConfig() {
     shouldReduceMotion,
     springConfig: shouldReduceMotion
       ? { duration: 0 }
-      : { type: 'spring', stiffness: 100, damping: 20 },
+      : { type: 'spring', stiffness: 120, damping: 25 },
     transitionConfig: shouldReduceMotion
       ? { duration: 0 }
       : { duration: 0.3 },
+  };
+}
+
+/**
+ * Hook for parallax scroll effects
+ * Returns transform values based on scroll position
+ */
+export function useParallax(strength = 0.5) {
+  const ref = useRef(null);
+  const [offset, setOffset] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (shouldReduceMotion) return;
+
+    const element = ref.current;
+    if (!element) return;
+
+    const handleScroll = () => {
+      const rect = element.getBoundingClientRect();
+      const scrolled = window.scrollY;
+      const elementTop = element.getBoundingClientRect().top + scrolled;
+      const distance = scrolled - (elementTop - window.innerHeight);
+      
+      // Only apply parallax when element is in viewport
+      if (distance > -window.innerHeight && distance < window.innerHeight) {
+        setOffset(distance * strength);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [strength, shouldReduceMotion]);
+
+  return {
+    ref,
+    offset: shouldReduceMotion ? 0 : offset,
   };
 }
 

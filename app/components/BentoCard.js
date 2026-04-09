@@ -2,12 +2,29 @@
 
 import React, { memo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useParallax } from '@/app/lib/hooks';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 function cn(...inputs) {
     return twMerge(clsx(inputs));
 }
+
+const cardVariants = {
+    initial: {
+        opacity: 0,
+        y: 20,
+    },
+    inView: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: 'spring',
+            stiffness: 100,
+            damping: 20,
+        },
+    },
+};
 
 const BentoCard = memo(({
     title,
@@ -17,33 +34,43 @@ const BentoCard = memo(({
     tag,
     tagClassName,
     meta,
-    animation = 'default',
     index = 0,
 }) => {
     const shouldReduceMotion = useReducedMotion();
-    
-    const animationClass = {
-        shimmer: '',
-        pulse: '',
-        orbit: '',
-        blink: '',
-        float: '',
-    }[animation] || '';
+    const { ref, offset } = useParallax(0.3);
     
     return (
-        <div className={cn("group flex flex-col gap-6", className)}>
+        <div className={cn("group flex flex-col gap-6", className)} ref={ref}>
             <motion.div
-                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-                whileInView={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", stiffness: 100, damping: 20, delay: index * 0.1 }}
-                className={cn("relative flex-1 overflow-hidden rounded-[2.75rem] bg-[#0e1116] p-7 sm:p-8 border border-white/5 shadow-[0_24px_80px_-40px_rgba(8,10,14,0.6)] transition-all hover:shadow-[0_40px_90px_-30px_rgba(8,10,14,0.7)]", animationClass)}
+                initial={shouldReduceMotion ? false : "initial"}
+                whileInView={shouldReduceMotion ? { opacity: 1, y: 0 } : "inView"}
+                variants={!shouldReduceMotion ? cardVariants : undefined}
+                viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+                transition={!shouldReduceMotion ? undefined : { duration: 0 }}
+                className={cn(
+                    "relative flex-1 overflow-hidden rounded-2xl p-8 sm:p-10",
+                    "bg-white border border-zinc-200/50",
+                    "shadow-sm hover:shadow-md transition-all duration-300",
+                    "will-change-transform"
+                )}
+                style={{
+                    transform: `translateY(${offset * 0.5}px) scale(${shouldReduceMotion ? 1 : 1.01 * (1 - Math.abs(offset) * 0.0001)})`,
+                }}
+                whileHover={!shouldReduceMotion ? { 
+                    scale: 1.01,
+                    y: -4,
+                    boxShadow: '0 12px 40px -8px rgba(0, 0, 0, 0.1)',
+                } : {}}
             >
-                <div className="absolute inset-0 z-0 bg-gradient-to-br from-white/0 via-white/5 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-
                 <div className="relative z-10 flex flex-col h-full">
                     {tag && (
-                        <span className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase mb-4 self-start border border-white/10 text-white/70", tagClassName)}>
+                        <span className={cn(
+                            "inline-flex items-center gap-2 px-3 py-1 rounded-sm",
+                            "text-[9px] font-mono tracking-widest uppercase mb-6 self-start",
+                            "border border-zinc-200 bg-zinc-50",
+                            "text-zinc-600",
+                            tagClassName
+                        )}>
                             {tag}
                         </span>
                     )}
@@ -54,19 +81,20 @@ const BentoCard = memo(({
                 </div>
             </motion.div>
 
-            <div className="px-4">
-                <h3 className="text-2xl font-medium tracking-tight text-zinc-900 group-hover:text-accent transition-colors">
+            {/* Card metadata section */}
+            <div className="px-2 space-y-3">
+                <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-zinc-900 leading-snug">
                     {title}
                 </h3>
-                <p className="text-sm text-zinc-600 leading-relaxed max-w-[35ch] mt-2">
+                <p className="text-sm text-zinc-600 leading-relaxed max-w-[50ch]">
                     {description}
                 </p>
                 {meta?.length ? (
-                    <div className="mt-5 grid grid-cols-3 gap-4 text-[10px] uppercase tracking-[0.25em] text-zinc-400">
+                    <div className="pt-4 grid grid-cols-3 gap-6 text-[9px] uppercase tracking-[0.3em] text-zinc-500 font-semibold border-t border-zinc-100">
                         {meta.map((item) => (
-                            <div key={item.label} className="flex flex-col gap-1">
-                                <span className="text-[9px] tracking-[0.3em] text-zinc-300/70">{item.label}</span>
-                                <span className="text-[11px] tracking-[0.15em] text-zinc-600">{item.value}</span>
+                            <div key={item.label} className="flex flex-col gap-2 pt-4">
+                                <span className="text-[8px] tracking-[0.35em] text-zinc-400">{item.label}</span>
+                                <span className="text-[11px] tracking-[0.2em] text-zinc-700 font-bold">{item.value}</span>
                             </div>
                         ))}
                     </div>
