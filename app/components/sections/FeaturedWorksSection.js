@@ -285,7 +285,7 @@ function EmeraldSystemVisual({ accent }) {
 }
 
 // ─── Project Preview Window ───────────────────────────────────────────────────
-function ProjectVisual({ tone, title }) {
+function ProjectVisual({ tone, title, image, isHovered }) {
   const colors = TONE[tone] || TONE.cyan;
   const visualMap = {
     cyan: <CyanDashboardVisual accent={colors.accent} />,
@@ -323,14 +323,28 @@ function ProjectVisual({ tone, title }) {
         </div>
       </div>
       {/* Visual content */}
-      <div className="absolute inset-0 pt-12 p-4 z-10">
-        {visualMap[tone]}
+      <div className="absolute inset-0 pt-[42px] z-10 overflow-hidden bg-[#0a0a0a]">
+        {image ? (
+          <div className="relative w-full h-full">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover object-top block"
+              loading="eager"
+            />
+            {/* Subtle gloss overlay */}
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/[0.05] to-transparent" />
+          </div>
+        ) : (
+          <div className="p-4 h-full">{visualMap[tone]}</div>
+        )}
       </div>
+
       {/* Bottom accent glow */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none z-20"
+        className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20"
         style={{
-          background: `linear-gradient(to top, ${colors.accent}18, transparent)`,
+          background: `linear-gradient(to top, ${colors.accent}20 0%, ${colors.accent}05 40%, transparent 100%)`,
         }}
       />
     </div>
@@ -355,8 +369,8 @@ function ProjectRow({ project, index, isHovered, onHover, onLeave, shouldReduceM
       }}
       onMouseEnter={() => onHover(project.id)}
       onMouseLeave={onLeave}
-      className="relative group cursor-pointer"
     >
+      <Link href={`/work/${project.slug}`} className="relative group cursor-pointer block">
       {/* Row hover background tint */}
       <motion.div
         className="absolute inset-0 pointer-events-none rounded-xl"
@@ -483,15 +497,24 @@ function ProjectRow({ project, index, isHovered, onHover, onLeave, shouldReduceM
               }}
             >
               <div
-                className="w-full h-full rounded-xl overflow-hidden"
-                style={{ border: '1px solid rgba(255,255,255,0.08)' }}
+                className="w-full h-full rounded-xl overflow-hidden shadow-2xl"
+                style={{ 
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  background: '#0a0a0a'
+                }}
               >
-                <ProjectVisual tone={project.tone} title={project.title} />
+                <ProjectVisual 
+                  tone={project.tone} 
+                  title={project.title} 
+                  image={project.image}
+                  isHovered={isHovered}
+                />
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+    </Link>
     </motion.div>
   );
 }

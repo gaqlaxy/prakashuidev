@@ -10,15 +10,13 @@ import { projects } from "./projects";
 
 // ─── Category color config ──────────────────────────────────────────────────
 const CAT_TONE = {
-  Product:        { color: "#2563eb", bg: "rgba(37,99,235,0.05)"  },
-  Finance:        { color: "#f59e0b", bg: "rgba(245,158,11,0.05)" },
-  "E-commerce":   { color: "#f43f5e", bg: "rgba(244,63,94,0.05)"  },
-  Infrastructure: { color: "#10b981", bg: "rgba(16,185,129,0.05)" },
-  Portfolio:      { color: "#a855f7", bg: "rgba(168,85,247,0.05)" },
-  Community:      { color: "#06b6d4", bg: "rgba(6,182,212,0.05)"  },
+  Architecture:   { color: "#06b6d4", bg: "rgba(6,182,212,0.05)"  },
+  Infrastructure: { color: "#f59e0b", bg: "rgba(245,158,11,0.05)" },
+  Healthcare:     { color: "#f43f5e", bg: "rgba(244,63,94,0.05)"  },
+  "Internal Tool": { color: "#10b981", bg: "rgba(16,185,129,0.05)" },
 };
 
-const CATEGORIES = ["All", "Product", "Finance", "E-commerce", "Infrastructure", "Community"];
+const CATEGORIES = ["All", "Architecture", "Infrastructure", "Healthcare", "Internal Tool"];
 
 // ─── Project card component ─────────────────────────────────────────────────
 function ProjectCard({ project, index }) {
@@ -137,8 +135,8 @@ function ProjectCard({ project, index }) {
             <p className="text-[12px] font-mono tracking-[0.2em] uppercase mb-3" style={{ color: `${tone.color}70` }}>
               {project.title.split(" // ")[1] || project.category}
             </p>
-            <p className="text-[13px] text-white/35 leading-relaxed group-hover:text-white/50 transition-colors duration-300">
-              {project.desc}
+            <p className="text-[13px] text-white/35 leading-relaxed group-hover:text-white/50 transition-colors duration-300 line-clamp-2">
+              {project.summary}
             </p>
 
             {/* Footer meta */}
