@@ -71,7 +71,7 @@ export default function HeroSection() {
               </p>
               <div className="flex items-center gap-4 text-xs font-mono text-accent/60">
                 <Globe size={16} />
-                <span>INDEPENDENT // BENGALURU // EST. 2026</span>
+                <span>INDEPENDENT // CHENNAI // EST. 2026</span>
               </div>
             </div>
 
